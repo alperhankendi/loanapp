@@ -8,4 +8,8 @@
       <ProjectReference Include="..\Loan\Loan.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="PortAdapters\ExternalServices" />
+    </ItemGroup>
+
 </Project>

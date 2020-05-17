@@ -9,9 +9,6 @@ namespace Loan.Domain
         public Name Name { get; set; }
         public DateTime Birthdate { get; }
         public MonetaryAmount MonthlyIncome { get; }
-
-        public MonetaryAmount MountlyIncome { get; }
-        
         public Address Address { get; }
         
         public NationalIdentifier NationalIdentifier { get; }
@@ -61,7 +58,7 @@ namespace Loan.Domain
                 NationalIdentifier,
                 Name,
                 Birthdate,
-                MountlyIncome,
+                MonthlyIncome,
                 Address
             };
         }

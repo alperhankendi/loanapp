@@ -20,8 +20,8 @@ diğerleri müşteri tarafından gönderilen belgelerin manuel olarak kontrol ed
 
 * Mülk değeri talep edilen kredi tutarını aşmamalıdır.
 * Son kredi taksit günü, müşteri yaşı 65 geçmemelidir.
-* Müşterinin Türkiye de herhangi kayıtlı bir borçu olmamalıdır.
 * Aylık kredi taksiti, müşterinin aylık gelirinin %15'ini geçmemelidir.
+* Müşterinin Türkiye de herhangi kayıtlı bir borçu olmamalıdır. (Gelir İdare başkanlığı servisi kullanılacak)
 
 
 ## Domain Expert ile görüşme
