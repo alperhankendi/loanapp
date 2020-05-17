@@ -16,17 +16,21 @@ namespace Loan.Domain
         }
         private ApplicationScore? Score { get; }
         private string Explanation { get; }
-        public ScoreResult Green()
+        public static ScoreResult Green()
         {
             return new ScoreResult(ApplicationScore.Green,null);
         }
-        public ScoreResult Red(string[] messages)
+        public static ScoreResult Red(string[] messages)
         {
             return new ScoreResult(ApplicationScore.Red,string.Join(Environment.NewLine,messages));
         }
         public bool IsRed()
         {
             return Score == ApplicationScore.Red;
+        }
+        public bool IsGreen()
+        {
+            return Score == ApplicationScore.Green;
         }
         protected override IEnumerable<object> GetAttributesToIncludeInEqualityCheck()
         {
