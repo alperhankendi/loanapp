@@ -1,0 +1,8 @@
+/.idea/.idea.LoanApp/
+/tests/Loan.Domain.Test/obj/
+/tests/Loan.Domain.Test/bin/
+/src/Loan.Domain/bin/Debug/netcoreapp3.1/
+/src/Loan.Domain/obj/
+/src/Loan/bin/Debug/netcoreapp3.1/
+/src/Loan/obj/
+/LoanApp.sln.DotSettings.user
