@@ -7,30 +7,52 @@ namespace Loan.Domain
     public class LoanApplication  : Entity<LoanApplicationId>
     {
         public LoanApplicationNumber Number { get; }
-        public LoanApplicationStatus Status { get; private set; }
+        public LoanApplicationStatus Status { get; }
         public ScoreResult Score { get; private set; }
         public Customer Customer { get; }
         public Property Property { get; }
         public Loan Loan { get; }
         public Registration Registration { get; }
-        public Decision Decision { get; }        
+        public Decision Decision { get; }
+
+        protected LoanApplication()
+        {
+        }
+        public LoanApplication(LoanApplicationNumber number, Customer customer, 
+            Property property, Loan loan,OperatorId registeredBy)
+        {
+            if (number==null)
+                throw new ArgumentException("Number cannot be null");
+            if (customer==null)
+                throw new ArgumentException("Customer cannot be null");
+            if (property==null)
+                throw new ArgumentException("Property cannot be null");
+            if (loan==null)
+                throw new ArgumentException("Loan cannot be null");
+            if (registeredBy==null)
+                throw new ArgumentException("Registration cannot be null");
+
+            Number = number;
+            Customer = customer;
+            Property = property;
+            Loan = loan;
+            
+            Id = new LoanApplicationId(Guid.NewGuid());
+            Status = LoanApplicationStatus.New;
+            Registration = new Registration(SystemTime.Now(),registeredBy);
+            Decision = null;
+            Score = null;
+        }
         
     }
 
-    public class LoanApplicationId : ValueObject<LoanApplicationId>
+    public class LoanApplicationId : IdentityBase<Guid>
     {
-        public Guid Value { get; }
-        public LoanApplicationId(Guid value)
+        public LoanApplicationId(Guid value):base(value)
         {
-            Value = value;
         }
         protected LoanApplicationId()
         {
-            
-        }
-        protected override IEnumerable<object> GetAttributesToIncludeInEqualityCheck()
-        {
-            yield return Value;
         }
     }
 

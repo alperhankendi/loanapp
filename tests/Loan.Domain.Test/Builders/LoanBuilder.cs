@@ -1,6 +1,6 @@
 namespace Loan.Domain.Test.Builders
 {
-    public class LoanBuilder
+    internal class LoanBuilder
     {
         private MonetaryAmount amount = new MonetaryAmount(200_000M);
         private int numberOfYears = 20;

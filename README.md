@@ -15,7 +15,7 @@ diğerleri müşteri tarafından gönderilen belgelerin manuel olarak kontrol ed
 * Operatör; sisteme skor kurallara göre hesaplama işlemini verir.
 * Skor red(kırmızı) ise başvuru reddedilir ve açıklama yapılır.
 * Skor olumlu(yeşil) ise, operatör ekli belgeleri doğrular ve verilen veri ve belgeleri arasındaki tutarsızlıklar nedeniyle başvuruyu kabul eder veya reddeder. (ScoreResult)
-* Her operatörün onaylayabileceği kredi tutar sınırlaması olmalı, yetkisini  aşan kredi tutarlarını onaylayamamalı. (Decision)
+* Her operatörün onaylayabileceği kredi tutar sınırlaması olmalı (CompetenceLevel), yetkisini  aşan kredi tutarlarını onaylayamamalı. (Decision)
 #### Uygulama puanı hesaplamamız için puanlama kurallarını inceleyelim. İşte kurallar:
 
 * Mülk değeri talep edilen kredi tutarını aşmamalıdır.

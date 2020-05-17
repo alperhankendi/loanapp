@@ -7,7 +7,7 @@ namespace Loan.Domain
     public class Decision : ValueObject<Decision>
     {
         public DateTime DecisionDate { get; set; }
-        public string DecisionBy { get; set; }
+        public OperatorId DecisionBy { get; set; }
         protected override IEnumerable<object> GetAttributesToIncludeInEqualityCheck()
         {
             return new List<object>
