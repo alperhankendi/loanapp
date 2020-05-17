@@ -14,8 +14,8 @@ namespace Loan.Domain
             Score = score;
             Explanation = explanation;
         }
-        private ApplicationScore? Score { get; }
-        private string Explanation { get; }
+        public ApplicationScore? Score { get; }
+        public string Explanation { get; }
         public static ScoreResult Green()
         {
             return new ScoreResult(ApplicationScore.Green,null);

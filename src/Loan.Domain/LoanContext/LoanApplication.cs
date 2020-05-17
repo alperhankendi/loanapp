@@ -7,13 +7,13 @@ namespace Loan.Domain
     public class LoanApplication  : Entity<LoanApplicationId>
     {
         public LoanApplicationNumber Number { get; }
-        public LoanApplicationStatus Status { get; }
+        public LoanApplicationStatus Status { get; private set; }
         public ScoreResult Score { get; private set; }
         public Customer Customer { get; }
         public Property Property { get; }
         public Loan Loan { get; }
         public Registration Registration { get; }
-        public Decision Decision { get; }
+        public Decision Decision { get; private set; }
 
         protected LoanApplication()
         {
@@ -43,8 +43,44 @@ namespace Loan.Domain
             Decision = null;
             Score = null;
         }
-        
+
+        public void Evaluate(ScoringRules rules)
+        {
+            Score = rules.Evaluate(this);
+            if (Score.IsRed())
+            {
+                Status = LoanApplicationStatus.Rejected;
+            }
+        }
+
+        //Status should be New => Accept or Reject
+        public void Accept(Operator decisionBy)
+        {
+            if (this.Status != LoanApplicationStatus.New)
+                throw new InvalidLoanApplicationStatusException($"Cannot accept application. The Status is already changed. The current status of application is {Status} And the Reason: {Score.Explanation}");
+            
+            if (Score == null)
+                throw new NeedToScoreApplicationException($"Cannot accept application before scoring");
+
+            if (!decisionBy.CanAccept(this.Loan.LoanAmount))
+                throw new OperatorDoesNotHaveRequiredCompetenceLevelException($"Operator does not required competence level to accept application");
+
+            Status = LoanApplicationStatus.Accepted;
+            Decision = new Decision(SystemTime.Now(),decisionBy.Id);
+        }
+
+        public void Reject(Operator decisionBy)
+        {
+            if (this.Status != LoanApplicationStatus.New)
+                throw new InvalidLoanApplicationStatusException($"Cannot reject application. The Status is already changed. The current status of application is {Status} And the Reason: {Score.Explanation}");
+
+            Status = LoanApplicationStatus.Rejected;
+            Decision = new Decision(SystemTime.Now(),decisionBy.Id);
+        }
     }
+
+
+
 
     public class LoanApplicationId : IdentityBase<Guid>
     {

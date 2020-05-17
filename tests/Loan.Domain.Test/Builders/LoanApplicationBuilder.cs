@@ -10,6 +10,10 @@ namespace Loan.Domain.Test.Builders
         private Loan loan = new LoanBuilder().Build();
         private LoanApplicationNumber applicationNumber = new LoanApplicationNumber(Guid.NewGuid().ToString());
         private LoanApplicationStatus targetStatus = LoanApplicationStatus.New;
+        private bool evaluated = false;
+        private bool accepted = false;
+        private bool rejected = false;
+        private readonly ScoringRulesFactory scoringRulesFactory = new ScoringRulesFactory(new DebtorRegistryMock());
 
         public LoanApplicationBuilder WithNumber(string number)
         {
@@ -42,6 +46,22 @@ namespace Loan.Domain.Test.Builders
             loan = loanBuilder.Build();
             return this;
         }
+        
+        public LoanApplicationBuilder Evaluated()
+        {
+            evaluated = true;
+            return this;
+        }
+        public LoanApplicationBuilder Accepted()
+        {
+            accepted = true;
+            return this;
+        }
+        public LoanApplicationBuilder Rejected()
+        {
+            rejected = true;
+            return this;
+        }
         public LoanApplication Build()
         {
             var application = new LoanApplication
@@ -52,9 +72,25 @@ namespace Loan.Domain.Test.Builders
                 loan,
                 user.Id
             );
+            
+            if (evaluated)
+            {
+                application.Evaluate(scoringRulesFactory.DefaultSet);    
+            }
 
+            if (accepted)
+            {
+                application.Accept(user);
+            }
+
+            if (rejected)
+            {
+                application.Reject(user);
+            }
+                
             return application;
         }
-        
+
+
     }
 }
