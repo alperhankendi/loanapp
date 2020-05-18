@@ -17,7 +17,7 @@ namespace Loan.Domain
                 throw new ArgumentException("National Identifier must be 11 chars long");
             Value = value;
         }
-        private string Value { get; }
+        public string Value { get; }
         protected override IEnumerable<object> GetAttributesToIncludeInEqualityCheck()
         {
             yield return Value;

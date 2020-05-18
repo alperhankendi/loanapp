@@ -20,8 +20,8 @@ namespace Loan.Domain
             Last = last;
         }
 
-        private string First { get; }
-        private string Last { get; }
+        public string First { get; }
+        public string Last { get; }
 
         public override string ToString()
         {
