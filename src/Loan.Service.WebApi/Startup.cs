@@ -26,7 +26,9 @@ namespace Loan.Service.WebApi
                     });
             });
 
+            services.AddExternalServicesClients();
             services.UseServiceBus();
+            
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

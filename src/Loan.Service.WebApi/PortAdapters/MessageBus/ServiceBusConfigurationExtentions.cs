@@ -1,5 +1,6 @@
 using System;
 using Loan.Core;
+using Loan.Service.WebApi.PortAdapters.EventConsumers;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 
