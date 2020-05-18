@@ -46,6 +46,7 @@ namespace Loan.Domain
             Birthdate = birthdate;
             MonthlyIncome = monthlyIncome;
             Address = address;
+            Name = name;
         }        
         public AgeInYears AgeInYearsAt(DateTime date)
         {

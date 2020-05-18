@@ -4,8 +4,8 @@ services:
     container_name: dbef
     image: postgres:12.3
     volumes:
-      - pg-data-efdata:/var/lib/postgresql/data
-#      - ./docs/dbschema:/docker-entrypoint-initdb.d
+      - pg-data-efdata1:/var/lib/postgresql/data
+      - ./SetupScripts/dbschema:/docker-entrypoint-initdb.d
     ports:
       - 5434:5432
     environment:
@@ -33,4 +33,4 @@ services:
       ADMINER_DESIGN: nette
 
 volumes:
-  pg-data-efdata:
+  pg-data-efdata1:
