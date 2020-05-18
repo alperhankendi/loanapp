@@ -5,6 +5,9 @@ namespace Loan.Domain
 {
     public class Operator : Entity<OperatorId>
     {
+        protected Operator()
+        {
+        }
         public Operator(Login login, Password password, Name name, MonetaryAmount competenceLevel)
         {
             if (competenceLevel==null)

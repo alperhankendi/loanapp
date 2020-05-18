@@ -1,3 +1,4 @@
+using Loan.Domain.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -26,9 +27,12 @@ namespace Loan.Service.WebApi
                     });
             });
 
-            services.AddExternalServicesClients();
-            services.UseServiceBus();
+            services.AddEfDbAdapters(Configuration["Database:ConnectionString"]);
             
+            services.AddExternalServicesClients();
+            
+            services.UseServiceBus();
+            services.AddApplicationServices();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

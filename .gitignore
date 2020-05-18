@@ -9,3 +9,4 @@
 /src/Loan.Domain.Repository/obj/
 /src/Loan.Service.WebApi/obj/
 /src/Loan.Service.WebApi/bin/Debug/netcoreapp3.1/
+/src/Loan.Domain.Repository/bin/Debug/netcoreapp3.1/

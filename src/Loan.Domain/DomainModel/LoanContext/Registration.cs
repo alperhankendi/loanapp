@@ -8,7 +8,9 @@ namespace Loan.Domain
     {
         public DateTime RegistrationDate { get;}
         public OperatorId RegisteredBy { get;}
-
+        protected Registration()
+        {
+        }
         public Registration(DateTime registrationDate,OperatorId registeredBy)
         {
             RegistrationDate = registrationDate;

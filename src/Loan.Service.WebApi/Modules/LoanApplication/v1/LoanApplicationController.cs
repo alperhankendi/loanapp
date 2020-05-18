@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Loan.Domain.Application;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -11,15 +12,19 @@ namespace Loan.Service.WebApi.Controllers
     [Route("[controller]")]
     public class LoanApplicationController : ControllerBase
     {
-        [Route("")]
-        [HttpGet]
-        public Task<List<string>> Get()
+        private readonly LoanApplicationSubmissionService loanApplicationSubmissionService;
+
+        private static string fakeUser = "admin";
+        public LoanApplicationController(LoanApplicationSubmissionService loanApplicationSubmissionService)
         {
-            return Task.FromResult(new List<string>
-            {
-                "test1",
-                "test2"
-            });
+            this.loanApplicationSubmissionService = loanApplicationSubmissionService;
+        }
+
+        [HttpPost]
+        public string Create([FromBody] Contract.V1.SubmitApplication submitApplication)
+        {
+            var newLoanApplicationNumber = loanApplicationSubmissionService.SubmitLoanApplication(submitApplication, fakeUser);
+            return newLoanApplicationNumber;
         }
     }
 }

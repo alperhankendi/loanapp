@@ -9,6 +9,10 @@ namespace Loan.Domain
         public DateTime DecisionDate { get; }
         public OperatorId DecisionBy { get; }
 
+        protected Decision()
+        {
+            
+        }
         public Decision(DateTime decisionDate, OperatorId decisionBy)
         {
             DecisionDate = decisionDate;

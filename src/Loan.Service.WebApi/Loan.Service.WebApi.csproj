@@ -12,6 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Loan.Domain.Repository\Loan.Domain.Repository.csproj" />
       <ProjectReference Include="..\Loan.Domain\Loan.Domain.csproj" />
       <ProjectReference Include="..\Loan\Loan.csproj" />
     </ItemGroup>
