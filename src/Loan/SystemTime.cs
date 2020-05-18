@@ -1,6 +1,6 @@
 using System;
 
-namespace Loan.Domain
+namespace Loan.Core
 {
     public class SystemTime
     {

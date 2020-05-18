@@ -5,7 +5,15 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="MassTransit" Version="6.3.1" />
+      <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="6.3.1" />
+      <PackageReference Include="MassTransit.RabbitMQ" Version="6.3.1" />
       <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Loan.Domain\Loan.Domain.csproj" />
+      <ProjectReference Include="..\Loan\Loan.csproj" />
     </ItemGroup>
 
 

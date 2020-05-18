@@ -1,3 +1,5 @@
+using Loan.Core;
+
 namespace Loan.Domain.Test.Builders
 {
     internal class CustomerBuilder

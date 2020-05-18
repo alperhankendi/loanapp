@@ -25,6 +25,8 @@ namespace Loan.Service.WebApi
                         Version = $"v{Configuration["Swagger:Version"]}" 
                     });
             });
+
+            services.UseServiceBus();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
