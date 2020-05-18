@@ -6,3 +6,6 @@
 /src/Loan/bin/Debug/netcoreapp3.1/
 /src/Loan/obj/
 /LoanApp.sln.DotSettings.user
+/src/Loan.Domain.Repository/obj/
+/src/Loan.Service.WebApi/obj/
+/src/Loan.Service.WebApi/bin/Debug/netcoreapp3.1/
