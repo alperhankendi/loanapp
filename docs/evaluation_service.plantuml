@@ -1,0 +1,29 @@
+@startuml
+
+class LoanApplicationEvaluationService <<application service>>{
+    void Evaluate(string applicationNumber)
+}
+interface IUnitOfWork {
+    void CommitChanges()
+}
+class EfUnitOfWork {
+ 
+}
+class EfLoanApplicationRepository{
+}
+interface ILoanApplicationRepository{
+    void Add(LoanApplication application)
+    LoanApplication WithNumber(LoanApplicationNumber loanApplicationNumber)
+}
+class ScoringRulesFactory <<factory>>{
+    ScoringRules DefaultSet
+}
+LoanApplicationEvaluationService  ..> IUnitOfWork :<<uses>>
+LoanApplicationEvaluationService  ..> ILoanApplicationRepository :<<uses>>
+LoanApplicationEvaluationService  --> ScoringRulesFactory
+
+
+EfUnitOfWork -up-> IUnitOfWork
+EfLoanApplicationRepository -up-> ILoanApplicationRepository
+
+@enduml

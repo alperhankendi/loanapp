@@ -20,6 +20,9 @@ namespace Loan.Domain.Application
         {
             var application = loanApplicationRepository.WithNumber(LoanApplicationNumber.Of(applicationNumber));
             
+            if (application == null)
+                throw new LoanApplicationNotFound($"Loan Application ({applicationNumber}) not found");
+            
             application.Evaluate(scoringRulesFactory.DefaultSet);
             unitOfWork.CommitChanges();
         }

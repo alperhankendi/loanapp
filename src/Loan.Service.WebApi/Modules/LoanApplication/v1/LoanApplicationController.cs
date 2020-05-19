@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Loan.Domain.Application;
+using Loan.Domain.ReadModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -15,15 +16,18 @@ namespace Loan.Service.WebApi.Controllers
         private readonly LoanApplicationSubmissionService loanApplicationSubmissionService;
         private readonly LoanApplicationEvaluationService loanApplicationEvaluationService;
         private readonly LoanApplicationDecisionService loanApplicationDecisionService;
+        private readonly LoanApplicationFinder loanApplicationFinder;
 
         private static string fakeUser = "admin";
         public LoanApplicationController(LoanApplicationSubmissionService loanApplicationSubmissionService,
             LoanApplicationEvaluationService loanApplicationEvaluationService,
-            LoanApplicationDecisionService loanApplicationDecisionService)
+            LoanApplicationDecisionService loanApplicationDecisionService,
+            LoanApplicationFinder loanApplicationFinder)
         {
             this.loanApplicationSubmissionService = loanApplicationSubmissionService;
             this.loanApplicationEvaluationService = loanApplicationEvaluationService;
             this.loanApplicationDecisionService = loanApplicationDecisionService;
+            this.loanApplicationFinder = loanApplicationFinder;
         }
 
         [HttpPost]
@@ -50,6 +54,14 @@ namespace Loan.Service.WebApi.Controllers
         {
             loanApplicationDecisionService.RejectApplication(applicationNumber,fakeUser);
             return Ok();
-        }            
+        }
+
+        [HttpGet]
+        [Route("summary")]
+        public IActionResult GetSummary()
+        {
+            var result = loanApplicationFinder.GetLoanApplicationSummary();
+            return Ok(result);
+        }
     }
 }

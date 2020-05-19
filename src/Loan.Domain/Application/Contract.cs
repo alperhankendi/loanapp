@@ -32,6 +32,12 @@ namespace Loan.Domain.Application
                 public string City { get; set; }
                 public string Street { get; set; }
             }
+            
+            public class LoanApplicationSummary
+            {
+                public string Status { get; set; }
+                public int Count { get; set; }
+            }
         }
     }
 }

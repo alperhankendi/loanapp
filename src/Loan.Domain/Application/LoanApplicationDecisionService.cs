@@ -23,7 +23,13 @@ namespace Loan.Domain.Application
         {
             var @operator = operatorRepository.WithLogin(Login.Of(login));
             var application = loanApplicationRepository.WithNumber(LoanApplicationNumber.Of(applicationNumber));
-            
+
+            if (application == null)
+                throw new LoanApplicationNotFound($"Loan Application ({applicationNumber}) not found");
+
+            if (@operator == null)
+                throw new OperatorNotFound($"Operator ({login}) not found");
+
             application.Reject(@operator);
             unitOfWork.CommitChanges();
             

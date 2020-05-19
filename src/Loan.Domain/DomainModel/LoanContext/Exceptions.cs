@@ -23,4 +23,17 @@ namespace Loan.Domain
         {
         }
     }
+    public class LoanApplicationNotFound : Exception
+    {
+        public LoanApplicationNotFound(string message):base(message)
+        {
+        }
+    }
+    public class OperatorNotFound : Exception
+    {
+        public OperatorNotFound(string message):base(message)
+        {
+        }
+    }
+    
 }

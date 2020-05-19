@@ -28,7 +28,7 @@ namespace Loan.Service.WebApi
             });
 
             services.AddEfDbAdapters(Configuration["Database:ConnectionString"]);
-            
+            services.AddReadModelServices(Configuration["Database:ConnectionString"]);
             services.AddExternalServicesClients();
             
             services.UseServiceBus();
