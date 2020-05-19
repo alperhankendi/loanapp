@@ -46,10 +46,6 @@ class Operator <<aggregate root>> {
 }
 
 class ScoringRules <<domain service>>{
-ScoreResult Evaluate(LoanApplication application)
-}
-interface IDebtorRegistry <<domain service>>{
-    bool HasDebtor(Customer customer)
 }
 class NationalIdentifier <<value object>>{
     string Value 
@@ -72,8 +68,6 @@ LoanApplication *--> Decision : decision
 LoanApplication *--> Registration : registration
 LoanApplication .left.>  ScoringRules : <<uses>>
 LoanApplication .right.>  Operator : <<uses>>
-
-ScoringRules    ..>  IDebtorRegistry : <<uses>>
 
 Customer        *--> NationalIdentifier : nationalIdentifier
 Customer        *--> Address :address

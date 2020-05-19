@@ -1,0 +1,28 @@
+@startuml
+
+class ScoringRules <<domain service>>{
+ScoreResult Evaluate(LoanApplication application)
+}
+class SpecificationBase <<abstract>> {
+   string Message
+  
+   bool IsSatisfiedBy(LoanApplication candidate)
+}
+interface ISpecification{
+    bool IsSatisfiedBy(T candidate)
+}
+interface IDebtorRegistry <<domain service>>{
+    bool HasDebtor(Customer customer)
+}
+
+class LoanAmountMustBeLowerThanPropertyValue{
+}
+
+ScoringRules    *-->    SpecificationBase :rules
+ISpecification  -left-|>     SpecificationBase 
+SpecificationBase   <|-- LoanAmountMustBeLowerThanPropertyValue :rules
+SpecificationBase   <|-- CustomerAgeAtTheDateOfLastInstallmentMustBeBelow65 :rules
+SpecificationBase   <|-- InstallmentAmountMustBeLowerThan15PercentOfCustomerIncome :rules
+SpecificationBase   <|-- CustomerHasNotDebtorRecord :rules
+CustomerHasNotDebtorRecord ..> IDebtorRegistry :uses
+@enduml
