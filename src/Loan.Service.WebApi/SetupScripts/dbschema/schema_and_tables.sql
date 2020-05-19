@@ -33,7 +33,7 @@ CREATE TABLE public."LoanApplications"
   "Loan_LoanNumberOfYears" integer,
   "Loan_InterestRate_Value" numeric(19,2),
   "Decision_DecisionDate" date,
-  "Decision_DecisionBy_Value" uuid,
+  "Decision_DecisionBy_Id" uuid,
   "Registration_RegistrationDate" date,
   "Registration_RegisteredBy_Id" uuid,
   "Id" uuid NOT NULL,
@@ -71,5 +71,5 @@ CREATE OR REPLACE VIEW loan_details_view AS
     opreg."Login" AS registeredby,
     loan."Registration_RegistrationDate" AS registrationdate
    FROM "LoanApplications" loan
-     LEFT JOIN "Operators" opreg ON loan."Registration_RegisteredBy_Value" = opreg."Id"
-     LEFT JOIN "Operators" opdec ON loan."Decision_DecisionBy_Value" = opreg."Id";
+     LEFT JOIN "Operators" opreg ON loan."Registration_RegisteredBy_Id" = opreg."Id"
+     LEFT JOIN "Operators" opdec ON loan."Decision_DecisionBy_Id" = opreg."Id";

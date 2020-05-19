@@ -13,18 +13,43 @@ namespace Loan.Service.WebApi.Controllers
     public class LoanApplicationController : ControllerBase
     {
         private readonly LoanApplicationSubmissionService loanApplicationSubmissionService;
+        private readonly LoanApplicationEvaluationService loanApplicationEvaluationService;
+        private readonly LoanApplicationDecisionService loanApplicationDecisionService;
 
         private static string fakeUser = "admin";
-        public LoanApplicationController(LoanApplicationSubmissionService loanApplicationSubmissionService)
+        public LoanApplicationController(LoanApplicationSubmissionService loanApplicationSubmissionService,
+            LoanApplicationEvaluationService loanApplicationEvaluationService,
+            LoanApplicationDecisionService loanApplicationDecisionService)
         {
             this.loanApplicationSubmissionService = loanApplicationSubmissionService;
+            this.loanApplicationEvaluationService = loanApplicationEvaluationService;
+            this.loanApplicationDecisionService = loanApplicationDecisionService;
         }
 
         [HttpPost]
-        public string Create([FromBody] Contract.V1.SubmitApplication submitApplication)
+        public string Create([FromBody] Contract.V1.SubmitApplication submitApplication)=>
+            loanApplicationSubmissionService.SubmitLoanApplication(submitApplication, fakeUser);
+
+        [HttpPut]
+        [Route("evaluate/{applicationNumber}")]
+        public IActionResult Evaluate(string applicationNumber)
         {
-            var newLoanApplicationNumber = loanApplicationSubmissionService.SubmitLoanApplication(submitApplication, fakeUser);
-            return newLoanApplicationNumber;
+            loanApplicationEvaluationService.EvaluateLoanApplication(applicationNumber);
+            return Ok();
         }
+        [HttpPut]
+        [Route("accept/{applicationNumber}")]
+        public IActionResult Accept(string applicationNumber)
+        {
+            loanApplicationDecisionService.AcceptApplication(applicationNumber,fakeUser);
+            return Ok();
+        }
+        [HttpPut]
+        [Route("reject/{applicationNumber}")]
+        public IActionResult Reject(string applicationNumber)
+        {
+            loanApplicationDecisionService.RejectApplication(applicationNumber,fakeUser);
+            return Ok();
+        }            
     }
 }

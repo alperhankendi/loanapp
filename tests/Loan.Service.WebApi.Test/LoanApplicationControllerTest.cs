@@ -52,27 +52,69 @@ namespace Loan.Service.WebApi.Test
             };
         }
         [Fact]
-        public async Task LoanApplicationController_CreateValidLoanApplication_ToBeSuccessCode()
+        public string LoanApplicationController_CreateValidLoanApplication_ToBeSuccessCode()
         {
-            var response = await client.PostAsJsonAsync("/LoanApplication", applicationRequest);
-            var payload = await response.Content.ReadAsStringAsync();
+            var response =  client.PostAsJsonAsync("/LoanApplication", applicationRequest).Result;
+            var payload =  response.Content.ReadAsStringAsync().Result;
             testOutputHelper.WriteLine($"Response :{payload}");
             
             response.EnsureSuccessStatusCode();
             Assert.NotEmpty(payload);
+            return payload;
         }
-        
         [Fact]
-        public async Task LoanApplicationController_CreateValidLoanApplication_ToBeFailedCode()
+        public void LoanApplicationController_CreateInValidLoanApplication_ToBeFailedCode()
         {
             applicationRequest.NationalIdentifier = "invalid_identity";
 
-            var response = await client.PostAsJsonAsync("/LoanApplication", applicationRequest);
-            var payload = await response.Content.ReadAsStringAsync();
+            var response = client.PostAsJsonAsync("/LoanApplication", applicationRequest).Result;
+            var payload = response.Content.ReadAsStringAsync().Result;
             testOutputHelper.WriteLine($"Response :{payload}");
             
             Assert.Equal(HttpStatusCode.InternalServerError,response.StatusCode);
             Assert.Contains("National Identifier must be 11 chars long",payload);
+        }
+        [Fact]
+        public async Task<string> LoanApplicationController_EvaluateValidLoanApplication_ToBeSuccessCode()
+        {
+            var validApplicationNumber = LoanApplicationController_CreateValidLoanApplication_ToBeSuccessCode();
+            var response = await client.PutAsync($"/LoanApplication/evaluate/{validApplicationNumber}",null);
+            testOutputHelper.WriteLine($"Response :{response}");
+            response.EnsureSuccessStatusCode();
+            return validApplicationNumber;
+        }
+        [Fact]
+        public async Task<string> LoanApplicationController_EvaluateInValidLoanApplication_ToBeSuccessCode()
+        {
+            applicationRequest.MonthlyIncome = 2000;
+            applicationRequest.PropertyValue = 20000;
+            var validApplicationNumber = LoanApplicationController_CreateValidLoanApplication_ToBeSuccessCode();
+            var response = await client.PutAsync($"/LoanApplication/evaluate/{validApplicationNumber}",null);
+            testOutputHelper.WriteLine($"Response :{response}");
+            response.EnsureSuccessStatusCode();
+            return validApplicationNumber;
+        }
+        [Fact]
+        public async Task LoanApplicationController_DecisionValidLoanApplication_ToBeAcceptedWithSuccessCode()
+        {
+            //Arrange
+            var validApplicationNumber = await LoanApplicationController_EvaluateValidLoanApplication_ToBeSuccessCode();
+            //Act
+            var response = await client.PutAsync($"/LoanApplication/accept/{validApplicationNumber}",null);
+            //Assert
+            testOutputHelper.WriteLine($"Response :{response}");
+            response.EnsureSuccessStatusCode();
+        }
+        [Fact]
+        public async Task LoanApplicationController_DecisionValidLoanApplication_ToBeRejectedWithSuccessCode()
+        {
+            //Arrange
+            var validApplicationNumber = await LoanApplicationController_EvaluateValidLoanApplication_ToBeSuccessCode();
+            //Act
+            var response = await client.PutAsync($"/LoanApplication/reject/{validApplicationNumber}",null);
+            //Assert
+            testOutputHelper.WriteLine($"Response :{response}");
+            response.EnsureSuccessStatusCode();
         }
     }
 }
