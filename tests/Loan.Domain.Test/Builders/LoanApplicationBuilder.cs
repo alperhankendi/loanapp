@@ -46,6 +46,12 @@ namespace Loan.Domain.Test.Builders
             loan = loanBuilder.Build();
             return this;
         }
+
+        public LoanApplicationBuilder WithStatus(LoanApplicationStatus status)
+        {
+            targetStatus = status;
+            return this;
+        }
         
         public LoanApplicationBuilder Evaluated()
         {
