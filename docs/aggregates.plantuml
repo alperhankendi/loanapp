@@ -6,7 +6,7 @@ class LoanApplication <<aggregate root>> {
     ScoringResult Score
     Decision Decision
     Registration Registration
-
+    
     void Evaluate(ScoringRules rules)
     void Accept(Operator decisionBy)
     void Reject(Operator decisionBy)
@@ -45,7 +45,9 @@ class Operator <<aggregate root>> {
     bool CanAccept(Amount loanLoanAmount)
 }
 
-class ScoringRules <<domain service>>
+class ScoringRules <<domain service>>{
+ScoreResult Evaluate(LoanApplication application)
+}
 interface IDebtorRegistry <<domain service>>{
     bool HasDebtor(Customer customer)
 }
@@ -68,7 +70,7 @@ LoanApplication *--> Loan : loan
 LoanApplication *--> Property : property
 LoanApplication *--> Decision : decision
 LoanApplication *--> Registration : registration
-LoanApplication ..>  ScoringRules : <<uses>>
+LoanApplication .left.>  ScoringRules : <<uses>>
 LoanApplication .right.>  Operator : <<uses>>
 
 ScoringRules    ..>  IDebtorRegistry : <<uses>>
