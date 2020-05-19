@@ -4,7 +4,7 @@ namespace Loan.Domain.Test.Builders
 {
     internal class LoanApplicationBuilder
     {
-        private Operator user = new Operator(new Login("admin"), new Password("admin"), new Name("admin", "admin"), new MonetaryAmount(1_000_000));
+        private Operator user = new Operator(new Login("admin"), new Password("admin"), new Name("admin", "admin"), new Money(1_000_000));
         private Customer customer = new CustomerBuilder().Build();
         private Property property = new PropertyBuilder().Build();
         private Loan loan = new LoanBuilder().Build();
@@ -22,7 +22,7 @@ namespace Loan.Domain.Test.Builders
         }
         public LoanApplicationBuilder WithOperator(string login)
         {
-            user = new Operator(new Login(login), new Password(login),new Name(login,login),new MonetaryAmount(1_000_000));
+            user = new Operator(new Login(login), new Password(login),new Name(login,login),new Money(1_000_000));
             return this;
         }
         public LoanApplicationBuilder WithCustomer(Action<CustomerBuilder> customizeCustomer)

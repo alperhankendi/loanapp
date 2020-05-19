@@ -15,7 +15,7 @@ namespace Loan.Domain.Test
                 .Build();
             
             var monthlyInstallment = loan.MonthlyInstallment();
-            Assert.Equal(new MonetaryAmount(12_587.78M), monthlyInstallment);
+            Assert.Equal(new Money(12_587.78M), monthlyInstallment);
         }
     }
 }

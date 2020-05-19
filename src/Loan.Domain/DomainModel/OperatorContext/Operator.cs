@@ -8,11 +8,11 @@ namespace Loan.Domain
         protected Operator()
         {
         }
-        public Operator(Login login, Password password, Name name, MonetaryAmount competenceLevel)
+        public Operator(Login login, Password password, Name name, Money competenceLevel)
         {
             if (competenceLevel==null)
                 throw new ArgumentException("CompetenceLevel cannot be null");
-            if (competenceLevel==MonetaryAmount.Zero)
+            if (competenceLevel==Money.Zero)
                 throw new ArgumentException("CompetenceLevel must be greater than 0");
 
             Id = new OperatorId(Guid.NewGuid());
@@ -25,9 +25,9 @@ namespace Loan.Domain
         public Login Login { get; }
         public Password Password { get; }
         public Name   Name { get; }
-        public MonetaryAmount CompetenceLevel { get; }
+        public Money CompetenceLevel { get; }
 
-        public bool CanAccept(MonetaryAmount loanAmount) => loanAmount < CompetenceLevel;
+        public bool CanAccept(Money loanAmount) => loanAmount < CompetenceLevel;
     }
 
     public class OperatorId : IdentityBase<Guid>

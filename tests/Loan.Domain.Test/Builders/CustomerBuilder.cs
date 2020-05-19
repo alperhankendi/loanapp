@@ -7,7 +7,7 @@ namespace Loan.Domain.Test.Builders
         private Name name = new Name("Alper","Hankendi");
         private NationalIdentifier nationalIdentifier = new NationalIdentifier("11111111111");
         private int age;
-        private MonetaryAmount income = new MonetaryAmount(20_000M);
+        private Money income = new Money(20_000M);
         private Address address = new Address("Turkey","34840","İstanbul","Cumhuriyet Cad.");
         
         public CustomerBuilder WithIdentifier(string nationalId)
@@ -30,7 +30,7 @@ namespace Loan.Domain.Test.Builders
         
         public CustomerBuilder WithIncome(decimal income)
         {
-            this.income = new MonetaryAmount(income);
+            this.income = new Money(income);
             return this;
         }
         

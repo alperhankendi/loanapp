@@ -21,7 +21,7 @@ namespace Loan.Domain.Test.Builders
         public Operator Build()
         {
             return new Operator(Login.Of(login),Password.Of(password),
-                new Name(login,login),new MonetaryAmount(competenceLevel)   );
+                new Name(login,login),new Money(competenceLevel)   );
         }
     }
 }

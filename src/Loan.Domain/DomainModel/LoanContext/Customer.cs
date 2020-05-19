@@ -8,7 +8,7 @@ namespace Loan.Domain
     {
         public Name Name { get; set; }
         public DateTime Birthdate { get; }
-        public MonetaryAmount MonthlyIncome { get; }
+        public Money MonthlyIncome { get; }
         public Address Address { get; }
         
         public NationalIdentifier NationalIdentifier { get; }
@@ -19,7 +19,7 @@ namespace Loan.Domain
 
         public Customer(NationalIdentifier nationalIdentifier,
             Name name,DateTime birthdate,
-            MonetaryAmount monthlyIncome,
+            Money monthlyIncome,
             Address address)
         {
             if (nationalIdentifier == null)

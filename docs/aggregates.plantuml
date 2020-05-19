@@ -1,0 +1,81 @@
+@startuml
+
+class LoanApplication <<aggregate root>> {
+    LoanApplicationNumber Number
+    LoanApplicationStatus Status
+    ScoringResult Score
+    Decision Decision
+    Registration Registration
+
+    void Evaluate(ScoringRules rules)
+    void Accept(Operator decisionBy)
+    void Reject(Operator decisionBy)
+}
+
+class Customer <<value object>> {
+    NationalIdentifier NationalIdentifier
+    Name Name
+    DateTime Birthdate
+    Amount MonthlyIncome
+    Address Address
+    AgeInYears AgeInYearsAt(DateTime date)
+}
+class Loan <<value object>> {
+    Amount LoanAmount
+    int LoanNumberOfYears
+    Percent InterestRate
+
+    Amount MonthlyInstallment()
+    DateTime LastInstallmentsDate()
+}
+
+class Property <<value object>> {
+    Amount Value
+    Address Address
+}
+class Decision <<value object>>{
+    DateTime DecisionDate
+    OperatorId DecisionBy
+}
+class Registration <<value object>>{
+    DateTime RegistrationDate
+    OperatorId RegisteredBy
+}
+class Operator <<aggregate root>> {
+    bool CanAccept(Amount loanLoanAmount)
+}
+
+class ScoringRules <<domain service>>
+interface IDebtorRegistry <<domain service>>{
+    bool HasDebtor(Customer customer)
+}
+class NationalIdentifier <<value object>>{
+    string Value 
+}
+class Address <<value object>> {
+    string Country 
+    string ZipCode 
+    string City 
+    string Street
+}
+class AgeInYears <<value object>>{
+    int age
+    AgeInYears Between(DateTime start, DateTime end)
+}
+
+LoanApplication *--> Customer : customer
+LoanApplication *--> Loan : loan
+LoanApplication *--> Property : property
+LoanApplication *--> Decision : decision
+LoanApplication *--> Registration : registration
+LoanApplication ..>  ScoringRules : <<uses>>
+LoanApplication .right.>  Operator : <<uses>>
+
+ScoringRules    ..>  IDebtorRegistry : <<uses>>
+
+Customer        *--> NationalIdentifier : nationalIdentifier
+Customer        *--> Address :address
+Customer        ..> AgeInYears : <<uses>>
+Property        *--> Address :address
+
+@enduml

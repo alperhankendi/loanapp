@@ -12,7 +12,7 @@ namespace Loan.Domain.Test
             (new NationalIdentifier("11704301782"),
                 new Name("Alper", "Hankendi"),
                 new DateTime(1960, 7, 20),
-                new MonetaryAmount(5_000M),
+                new Money(5_000M),
                 new Address("Turkey", "34840", "Istanbul", "Cumhuriyet Cd.")
             );
             var ageAt2031 = customer.AgeInYearsAt(new DateTime(2031, 1, 1));
@@ -26,7 +26,7 @@ namespace Loan.Domain.Test
             (new NationalIdentifier("11704301782"),
                 new Name("Alper", "Hankendi"),
                 new DateTime(1980, 7, 20),
-                new MonetaryAmount(5_000M),
+                new Money(5_000M),
                 new Address("Turkey", "34840", "Istanbul", "Cumhuriyet Cd.")
             );
             var ageAt2021 = customer.AgeInYearsAt(new DateTime(2021, 1, 1));
@@ -42,7 +42,7 @@ namespace Loan.Domain.Test
                 (   null,
                     new Name("Alper","Hankendi"),
                     new DateTime(1980,7,20),
-                    new MonetaryAmount(5_000M),
+                    new Money(5_000M),
                     new Address("Turkey","34840","Istanbul","Cumhuriyet Cd.")
                 )
             );
@@ -58,7 +58,7 @@ namespace Loan.Domain.Test
                 (   new NationalIdentifier("11704301782"),
                     null,
                     new DateTime(1980,7,20),
-                    new MonetaryAmount(5_000M),
+                    new Money(5_000M),
                     new Address("Turkey","34840","Istanbul","Cumhuriyet Cd.")
                 )
             );
@@ -74,7 +74,7 @@ namespace Loan.Domain.Test
                 (   new NationalIdentifier("11704301782"),
                     new Name("Alper","Hankendi"),
                     default,
-                    new MonetaryAmount(5_000M),
+                    new Money(5_000M),
                     new Address("Turkey","34840","Istanbul","Cumhuriyet Cd.")
                 )
             );
@@ -107,7 +107,7 @@ namespace Loan.Domain.Test
                 (   new NationalIdentifier("11704301782"),
                     new Name("Alper","Hankendi"),
                     new DateTime(1980,7,20),
-                    new MonetaryAmount(5_000M),
+                    new Money(5_000M),
                     null
                 )
             );

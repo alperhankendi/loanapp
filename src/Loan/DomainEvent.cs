@@ -2,7 +2,7 @@ using System;
 
 namespace Loan.Core
 {
-    public abstract class DomainEvent
+    public class DomainEvent
     {
         public Guid Id { get; protected set; }
         public DateTime OccuredOn { get;protected set; }

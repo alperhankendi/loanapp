@@ -38,7 +38,7 @@ namespace Loan.Domain.Application
             application.Accept(@operator);
             unitOfWork.CommitChanges();
             
-            eventPublisher.Publish(new Events.V1.LoanApplicationAccepted(application));
+            eventPublisher.Publish<Events.V1.LoanApplicationAccepted>(new Events.V1.LoanApplicationAccepted(application));
         }
     }
 }

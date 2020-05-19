@@ -6,16 +6,16 @@ namespace Loan.Service.WebApi
 {
     public class EventPublisher : IEventPublisher
     {
-        private readonly IBus serviceBus;
+        private readonly IBusControl serviceBus;
 
-        public EventPublisher(MassTransit.IBus serviceBus)
+        public EventPublisher(IBusControl serviceBus)
         {
             this.serviceBus = serviceBus;
         }
 
         public void Publish<TMessage>(TMessage message) where TMessage : DomainEvent
         {
-            serviceBus.Publish(message);
+            serviceBus.Publish<TMessage>(message);
         }
     }
 }

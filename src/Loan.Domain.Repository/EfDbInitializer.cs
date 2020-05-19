@@ -4,7 +4,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
 namespace Loan.Domain.Repository
 {
     public class EfDbInitializer : IHostedService
@@ -25,7 +24,7 @@ namespace Loan.Domain.Repository
                 await dbCtx.Operators.AddAsync(new Operator(
                     new Login("admin"),new Password("admin"), 
                     new Name("Admin","Admin"),
-                    new MonetaryAmount(1_000_000M)  
+                    new Money(1_000_000M)  
                 ), cancellationToken);
             }
 

@@ -2,12 +2,12 @@ namespace Loan.Domain.Test.Builders
 {
     internal class PropertyBuilder
     {
-        private MonetaryAmount value = new MonetaryAmount(300_000M);
+        private Money value = new Money(300_000M);
         private Address address = new Address("Turkey","34840","İstanbul","Cumhuriyet Cad.");
 
         public PropertyBuilder WithValue(decimal propertyValue)
         {
-            value = new MonetaryAmount(propertyValue);
+            value = new Money(propertyValue);
             return this;
         }
 

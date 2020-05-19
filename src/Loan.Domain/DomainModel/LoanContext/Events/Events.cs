@@ -1,5 +1,6 @@
 using System;
 using Loan.Core;
+using Newtonsoft.Json;
 
 namespace Loan.Domain
 {
@@ -13,6 +14,7 @@ namespace Loan.Domain
                 public LoanApplicationAccepted(LoanApplication loanApplication):this(loanApplication.Id.Id)
                 {
                 }
+                [JsonConstructor]
                 protected LoanApplicationAccepted(Guid id)
                 {
                     LoanApplicationId = id;
@@ -24,6 +26,7 @@ namespace Loan.Domain
                 public LoanApplicationRejected(LoanApplication loanApplication):this(loanApplication.Id.Id)
                 {
                 }
+                [JsonConstructor]
                 protected LoanApplicationRejected(Guid id)
                 {
                     LoanApplicationId = id;

@@ -6,20 +6,20 @@ namespace Loan.Domain
 {
     public class Property :ValueObject<Property>
     {
-        public MonetaryAmount Value { get; }
+        public Money Value { get; }
         public Address Address { get; }
         
         protected Property()
         {
         }
 
-        public Property(MonetaryAmount value,Address address)
+        public Property(Money value,Address address)
         {
             if (value == null)
                 throw new ArgumentException("Value cannot be null");
             if (address==null)
                 throw new ArgumentException("Address cannot be null");
-            if (value <= MonetaryAmount.Zero)
+            if (value <= Money.Zero)
                 throw new ArgumentException("Property value must be higher than 0");
             Value = value;
             Address = address;
