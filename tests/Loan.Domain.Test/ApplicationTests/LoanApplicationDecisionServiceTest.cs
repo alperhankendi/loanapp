@@ -76,5 +76,50 @@ namespace Loan.Domain.Test
                      && ((Events.V1.LoanApplicationRejected) e).LoanApplicationId == existingApplication.Id.Id);
 
         }
+        [Fact]
+        public void LoanApplicationDecisionService_GreenApplicationWithNonExistOperator_ShouldThrowOperatorNotFoundException()
+        {
+            var operators = new OperatorRepositoryMock(new List<Operator>
+            {
+                new OperatorBuilder().WithLogin("non-exist-operator").Build(),
+            });
+            var existingApplication = new LoanApplicationBuilder()
+                .WithNumber("123")
+                .WithCustomer(c => c.WithAge(25).WithIncome(20_000M))
+                .WithLoan(l => l.WithAmount(200_000).WithInterestRate(1.1M).WithNumberOfYears(20))
+                .WithProperty(p => p.WithValue(250_000M))
+                .Evaluated()
+                .Build();
+            
+            var decisionService = new LoanApplicationDecisionService(
+                new UnitOfWorkMock(), 
+                new LoanApplicationRepositoryMock(new []{existingApplication}),
+                operators,
+                null
+            );
+            Assert.Throws<OperatorNotFound>(() =>
+            {
+                decisionService.RejectApplication("123","admin");    
+            });
+        }
+        [Fact]
+        public void LoanApplicationDecisionService_NonExistApplication_ShouldThrowLoanNotFoundException()
+        {
+            var operators = new OperatorRepositoryMock(new List<Operator>
+            {
+                new OperatorBuilder().WithLogin("non-exist-operator").Build(),
+            });
+            var decisionService = new LoanApplicationDecisionService(
+                new UnitOfWorkMock(), 
+                new LoanApplicationRepositoryMock(null),
+                operators,
+                null
+            );
+            Assert.Throws<LoanApplicationNotFound>(() =>
+            {
+                decisionService.RejectApplication("123","admin");    
+            });
+        }
+        
     }
 }

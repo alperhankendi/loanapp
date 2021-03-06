@@ -14,8 +14,7 @@ namespace Loan.Domain
         }
         protected override IEnumerable<object> GetAttributesToIncludeInEqualityCheck()
         {
-            yield return age;
-        }
+            yield return age; }
 
         public static AgeInYears Between(DateTime start, DateTime end)
         {

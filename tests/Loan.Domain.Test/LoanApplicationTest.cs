@@ -1,3 +1,4 @@
+using System;
 using Loan.Domain.Test.Builders;
 using Xunit;
 
@@ -7,6 +8,11 @@ namespace Loan.Domain.Test
     {
         private readonly ScoringRulesFactory scoringRulesFactory = new ScoringRulesFactory(new DebtorRegistryMock());
 
+        [Fact]
+        public void NewLoanApplicationWithEmptyNumber_ShouldThrowArgumentException()
+        {
+            Assert.Throws<ArgumentException>(()=>new LoanApplicationNumber(""));
+        }
         [Fact]
         public void NewApplication_IsCreatedIn_NewStatus_AndNullScore()
         {

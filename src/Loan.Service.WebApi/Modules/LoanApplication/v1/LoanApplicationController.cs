@@ -63,5 +63,13 @@ namespace Loan.Service.WebApi.Controllers
             var result = loanApplicationFinder.GetLoanApplicationSummary();
             return Ok(result);
         }
+        [HttpGet]
+        [Route("summary_details")]
+        public IActionResult GetSummaryWithDetail()
+        {
+            var result = loanApplicationFinder.GetLoanApplicationSummaryWithDetails();
+            return Ok(result);
+        }
+        
     }
 }

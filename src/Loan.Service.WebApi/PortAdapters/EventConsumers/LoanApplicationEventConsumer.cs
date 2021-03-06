@@ -20,7 +20,6 @@ namespace Loan.Service.WebApi.PortAdapters.EventConsumers
         {
             emailSender.Send("","","");
             Console.WriteLine($"Loan Application is accepted. Application Number is {context.Message.LoanApplicationId}");
-            throw new ArgumentException();
             return Task.CompletedTask;
         }
 

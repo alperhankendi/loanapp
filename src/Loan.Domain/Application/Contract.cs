@@ -38,6 +38,12 @@ namespace Loan.Domain.Application
                 public string Status { get; set; }
                 public int Count { get; set; }
             }
+            public class LoanApplicationSummaryWithDetail
+            {
+                public string ApplicationId { get; set; }
+                public string NameSurname { get; set; }
+                public string Status { get; set; }
+            }
         }
     }
 }

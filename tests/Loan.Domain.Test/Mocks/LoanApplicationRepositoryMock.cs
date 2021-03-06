@@ -10,6 +10,7 @@ namespace Loan.Domain.Test
 
         public LoanApplicationRepositoryMock(IEnumerable<LoanApplication> initalData)
         {
+            if (initalData == null) return;
             foreach (var @operator in initalData)
             {
                 this.loanApplications[@operator.Id] = @operator;

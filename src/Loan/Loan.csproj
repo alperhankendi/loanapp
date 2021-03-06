@@ -1,9 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net5.0</TargetFramework>
         <AssemblyName>Loan.Core</AssemblyName>
         <RootNamespace>Loan.Core</RootNamespace>
+        <LangVersion>9</LangVersion>
     </PropertyGroup>
 
 </Project>

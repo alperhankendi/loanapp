@@ -23,7 +23,7 @@ namespace Loan.Domain
             if (string.IsNullOrWhiteSpace(street))
                 throw new ArgumentException("Street cannot be empty.");
             if (!new Regex("[0-9]{5}").Match(zipCode).Success)
-                throw new ArgumentException("Zip code must be NN-NNN format.");
+                throw new ArgumentException("Zip code must be NNNNN format.");
             
             Country = country;
             ZipCode = zipCode;

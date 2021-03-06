@@ -33,9 +33,13 @@ namespace Loan.Core
 
         public override int GetHashCode()
         {
-            var hash = 17;
+            var hash = 13;
+            var i = 1;
             foreach (var obj in this.GetAttributesToIncludeInEqualityCheck())
-                hash = hash * 31 + (obj == null ? 0 : obj.GetHashCode());
+            {
+                hash +=  (31 ^ i) * (obj == null ? 1 : obj.GetHashCode());
+                i++;
+            }
 
             return hash;
         }

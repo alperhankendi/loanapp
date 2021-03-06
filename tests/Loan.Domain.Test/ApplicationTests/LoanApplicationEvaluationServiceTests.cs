@@ -55,6 +55,19 @@ namespace Loan.Domain.Test
             existingApplication.ScoreIs(ApplicationScore.Red).IsInStatus(LoanApplicationStatus.Rejected);
             testOutputHelper.WriteLine($"Reject reasons: {existingApplication.Score.Explanation}");
         }
+
+        [Fact]
+        public void LoanApplicationEvaluationService_NonExistApplication_ShouldThrowLoanNotFoundException()
+        {
+            var loanApplicationRepositoryMock = new LoanApplicationRepositoryMock(null);
+
+            var evaluationService = new LoanApplicationEvaluationService(loanApplicationRepositoryMock,
+                new ScoringRulesFactory(new DebtorRegistryMock()),
+                new UnitOfWorkMock()
+            );
+            Assert.Throws<LoanApplicationNotFound>( ()=> evaluationService.EvaluateLoanApplication("non-exist-application-number") );
+        }
+
         
     }
 }

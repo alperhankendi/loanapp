@@ -41,7 +41,6 @@ namespace Loan.Domain
             var lastInstallmentDate = loanApplication.Loan.LastInstallmentsDate();
             return loanApplication.Customer.AgeInYearsAt(lastInstallmentDate) < 65.Years();
         }
-
         public override string Message => "Customer age at last installment date is above 65";
     }
 
@@ -50,9 +49,8 @@ namespace Loan.Domain
         public override bool IsSatisfiedBy(LoanApplication loanApplication)
         {
             return loanApplication.Loan.MonthlyInstallment()
-                   < loanApplication.Customer.MonthlyIncome * 15.Percent();
+                   < loanApplication.Customer.MonthlyIncome  * 15.Percent();
         }
-
         public override string Message => "Installment is higher than %15 of customer's income.";
     }
 
