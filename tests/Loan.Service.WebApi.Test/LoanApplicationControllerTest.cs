@@ -118,5 +118,22 @@ namespace Loan.Service.WebApi.Test
             testOutputHelper.WriteLine($"Response :{response}");
             response.EnsureSuccessStatusCode();
         }
+
+        [Fact]
+        public async Task LoadApplicationController_GetSummary_ToBeSuccess()
+        {
+            var response = await client.GetAsync($"/LoanApplication/summary");
+            //Assert
+            testOutputHelper.WriteLine($"Response :{response}");
+            response.EnsureSuccessStatusCode();
+        }
+        [Fact]
+        public async Task LoadApplicationController_GetSummaryWithDetail_ToBeSuccess()
+        {
+            var response = await client.GetAsync($"/LoanApplication/summary_details");
+            //Assert
+            testOutputHelper.WriteLine($"Response :{response}");
+            response.EnsureSuccessStatusCode();
+        }
     }
 }

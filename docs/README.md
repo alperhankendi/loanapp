@@ -47,4 +47,10 @@ r = Faiz Oranı, n = ödeme sayısı , P = anapara ; gördüğün gibi gayet bas
 <b>Developer</b> :  Son taksit tarihini hesaplarken başlangıç ​​tarihi olarak hangi tarihi almalıyım?
 
 <b>Expert</b> :  Şimdilik başlangıç tarihini başvuru kabul tarihi olarak kabul edelim. Fakat daha sonra farklı bir yöntem izleyebiliriz.
-Geliştirmeni bunu göze alarak yapmanda fayda var. 
+Geliştirmeni bunu göze alarak yapmanda fayda var.
+
+
+### links
+https://www.youtube.com/watch?v=Z62cbp61Bb8
+
+https://www.youtube.com/watch?v=LDRxo6wDIE0
