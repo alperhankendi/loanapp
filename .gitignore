@@ -12,3 +12,13 @@
 /src/Loan.Domain.Repository/bin/
 /tests/Loan.Service.WebApi.Test/bin/
 /tests/Loan.Service.WebApi.Test/obj/
+/src/Core/obj/
+/src/Core/bin/
+/src/MyContext.Domain/obj/
+/src/MyContext.Domain/bin
+/src/MyContext.Domain.Repository/obj/
+/src/MyContext.Domain.Repository/bin
+/src/MyContext.Service.WebApi/obj/
+/src/MyContext.Service.WebApi/bin
+/tests/MyContext.Domain.Test/bin/
+/tests/MyContext.Domain.Test/obj/
