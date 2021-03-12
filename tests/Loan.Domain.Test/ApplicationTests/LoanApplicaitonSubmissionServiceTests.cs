@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Loan.Domain.Application;
 using Loan.Domain.Test.Builders;
+using Loan.Service.WebApi.Modules.LoanApplication;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -27,7 +28,8 @@ namespace Loan.Domain.Test
             
             var service = new LoanApplicationSubmissionService(operators,
                 loanapplications,
-                new UnitOfWorkMock()
+                new UnitOfWorkMock(),
+                new EventPublisherMock()
             );
 
             var applicationRequest = new Contract.V1.SubmitApplication
@@ -43,6 +45,7 @@ namespace Loan.Domain.Test
                     Street = "Cumhuriyet Cad.",
                     ZipCode = "34840"
                 },
+                Email = "ahankendi@gmail.com",
                 MonthlyIncome = 20_000M,
                 LoanNumberOfYears = 10,
                 LoanInterestRate = 1.1M,
@@ -55,11 +58,9 @@ namespace Loan.Domain.Test
                     Street = "Cumhuriyet Cad.",
                     ZipCode = "34840"
                 }
-
             };
 
-            
-            var appNumber = service.SubmitLoanApplication(applicationRequest, "admin");
+            var appNumber = service.SubmitLoanApplication(Mapper.ToModel(applicationRequest));
             outputHelper.WriteLine($"Func:ValidApplication_GetsSubmitted, Result:{appNumber}");
             Assert.False(string.IsNullOrWhiteSpace(appNumber));
             Assert.NotNull(loanapplications.WithNumber(LoanApplicationNumber.Of(appNumber)));
@@ -74,9 +75,11 @@ namespace Loan.Domain.Test
             });
             var loanapplications = new LoanApplicationRepositoryMock(new List<LoanApplication>());
             
+            var eventPublisher = new EventPublisherMock();
             var service = new LoanApplicationSubmissionService(operators,
                 loanapplications,
-                new UnitOfWorkMock()
+                new UnitOfWorkMock(),
+                eventPublisher
             );
 
             var applicationRequest = new Contract.V1.SubmitApplication
@@ -107,9 +110,9 @@ namespace Loan.Domain.Test
 
             };
 
-            var ex = Assert.Throws<ArgumentException>(() => service.SubmitLoanApplication(applicationRequest, ""));
+            var ex = Assert.Throws<ArgumentException>(() => service.SubmitLoanApplication(Mapper.ToModel(applicationRequest)));
             outputHelper.WriteLine(ex.Message);
-            Assert.Equal("Login cannot be null or empty string",ex.Message);
+            Assert.Equal("National Identifier must be 11 chars long",ex.Message);
         }
     }
 }

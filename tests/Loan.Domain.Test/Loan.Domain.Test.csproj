@@ -20,6 +20,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\src\Loan.Domain\Loan.Domain.csproj" />
+      <ProjectReference Include="..\..\src\Loan.Service.WebApi\Loan.Service.WebApi.csproj" />
     </ItemGroup>
 
 </Project>

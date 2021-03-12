@@ -75,9 +75,7 @@ namespace Loan.Domain.Test.Builders
                 applicationNumber,
                 customer,
                 property,
-                loan,
-                user.Id
-            );
+                loan);
             
             if (evaluated)
             {

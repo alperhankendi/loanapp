@@ -10,6 +10,7 @@ namespace Loan.Domain
         public DateTime Birthdate { get; }
         public Money MonthlyIncome { get; }
         public Address Address { get; }
+        public Email Email { get; }
         
         public NationalIdentifier NationalIdentifier { get; }
 
@@ -20,7 +21,8 @@ namespace Loan.Domain
         public Customer(NationalIdentifier nationalIdentifier,
             Name name,DateTime birthdate,
             Money monthlyIncome,
-            Address address)
+            Address address,
+            Email email)
         {
             if (nationalIdentifier == null)
             {
@@ -42,6 +44,12 @@ namespace Loan.Domain
             {
                 throw new ArgumentException("Birthdate cannot be empty");
             }
+            if (email == null)
+            {
+                throw new ArgumentException("Email cannot be empty");
+            }
+
+            Email = email;
             NationalIdentifier = nationalIdentifier;
             Birthdate = birthdate;
             MonthlyIncome = monthlyIncome;

@@ -48,6 +48,7 @@ namespace Loan.Service.WebApi
                     Configuration["Swagger:Endpoint:Name"]);
             });
             //app.UseHttpsRedirection();
+            app.UseCustomErrorHandlingMiddleware();
             app.UseRouting();
             app.UseAuthorization();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });

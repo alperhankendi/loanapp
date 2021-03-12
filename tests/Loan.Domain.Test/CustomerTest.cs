@@ -13,7 +13,8 @@ namespace Loan.Domain.Test
                 new Name("Alper", "Hankendi"),
                 new DateTime(1960, 7, 20),
                 new Money(5_000M),
-                new Address("Turkey", "34840", "Istanbul", "Cumhuriyet Cd.")
+                new Address("Turkey", "34840", "Istanbul", "Cumhuriyet Cd."),
+                new Email("ahankendi@gmail.com")
             );
             var ageAt2031 = customer.AgeInYearsAt(new DateTime(2031, 1, 1));
             
@@ -27,7 +28,8 @@ namespace Loan.Domain.Test
                 new Name("Alper", "Hankendi"),
                 new DateTime(1980, 7, 20),
                 new Money(5_000M),
-                new Address("Turkey", "34840", "Istanbul", "Cumhuriyet Cd.")
+                new Address("Turkey", "34840", "Istanbul", "Cumhuriyet Cd."),
+                new Email("ahankendi@gmail.com")
             );
             var ageAt2021 = customer.AgeInYearsAt(new DateTime(2021, 1, 1));
             
@@ -43,7 +45,8 @@ namespace Loan.Domain.Test
                     new Name("Alper","Hankendi"),
                     new DateTime(1980,7,20),
                     new Money(5_000M),
-                    new Address("Turkey","34840","Istanbul","Cumhuriyet Cd.")
+                    new Address("Turkey","34840","Istanbul","Cumhuriyet Cd."),
+                    new Email("ahankendi@gmail.com")
                 )
             );
             
@@ -59,7 +62,8 @@ namespace Loan.Domain.Test
                     null,
                     new DateTime(1980,7,20),
                     new Money(5_000M),
-                    new Address("Turkey","34840","Istanbul","Cumhuriyet Cd.")
+                    new Address("Turkey","34840","Istanbul","Cumhuriyet Cd."),
+                    new Email("ahankendi@gmail.com")
                 )
             );
             
@@ -75,7 +79,8 @@ namespace Loan.Domain.Test
                     new Name("Alper","Hankendi"),
                     default,
                     new Money(5_000M),
-                    new Address("Turkey","34840","Istanbul","Cumhuriyet Cd.")
+                    new Address("Turkey","34840","Istanbul","Cumhuriyet Cd."),
+                    new Email("ahankendi@gmail.com")
                 )
             );
             
@@ -92,7 +97,8 @@ namespace Loan.Domain.Test
                     new Name("Alper","Hankendi"),
                     new DateTime(1980,7,20),
                     null,
-                    new Address("Turkey","34840","Istanbul","Cumhuriyet Cd.")
+                    new Address("Turkey","34840","Istanbul","Cumhuriyet Cd."),
+                    new Email("ahankendi@gmail.com")
                 )
             );
             Assert.Equal("Monthly income cannot be null",ex.Message);
@@ -108,6 +114,7 @@ namespace Loan.Domain.Test
                     new Name("Alper","Hankendi"),
                     new DateTime(1980,7,20),
                     new Money(5_000M),
+                    null,
                     null
                 )
             );

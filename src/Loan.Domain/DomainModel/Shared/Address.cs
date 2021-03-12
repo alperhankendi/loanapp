@@ -5,6 +5,31 @@ using Loan.Core;
 
 namespace Loan.Domain
 {
+    public class Email : ValueObject<Email>
+    {
+        public string MailValue { get; }
+
+        protected Email()
+        {
+            
+        }
+        public Email(string email)
+        {
+            if (!email.Contains("@")) throw new Exception("Email is invalid");
+
+            MailValue = email;
+        }
+
+        public override string ToString()
+        {
+            return MailValue;
+        }
+
+        protected override IEnumerable<object> GetAttributesToIncludeInEqualityCheck()
+        {
+            yield return MailValue;
+        }
+    }
     public class Address : ValueObject<Address>
     {
         public string Country { get; }

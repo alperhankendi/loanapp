@@ -22,27 +22,27 @@ namespace Loan.Domain.Repository
                 .HasKey(l => l.Id);
             modelBuilder.Entity<LoanApplication>()
                 .Property(l => l.Id)
-                .HasConversion(x=>x.Id, x=> new LoanApplicationId(x));
-            
+                .HasConversion(x => x.Id, x => new LoanApplicationId(x));
+
             modelBuilder.Entity<LoanApplication>()
                 .Property(l => l.Number);
-            
+
             var converter = new EnumToStringConverter<LoanApplicationStatus>();
             var converterForScore = new EnumToStringConverter<ApplicationScore>();
-            
+
             modelBuilder.Entity<LoanApplication>()
                 .Property(l => l.Status).HasConversion(converter);
-            
+
             modelBuilder.Entity<LoanApplication>()
                 .OwnsOne(a => a.Score, s =>
                 {
                     s.Property(x => x.Explanation);
                     s.Property(x => x.Score).HasConversion(converterForScore);
                 });
-            
+
             modelBuilder.Entity<LoanApplication>()
                 .OwnsOne(a => a.Customer)
-                .OwnsOne(c =>c.Address, ca =>
+                .OwnsOne(c => c.Address, ca =>
                 {
                     ca.Property(x => x.Country);
                     ca.Property(x => x.City);
@@ -51,15 +51,18 @@ namespace Loan.Domain.Repository
                 });
             modelBuilder.Entity<LoanApplication>()
                 .OwnsOne(a => a.Customer)
-                .OwnsOne(c =>c.NationalIdentifier, ni => ni.Property(x=>x.Value));
+                .OwnsOne(c => c.NationalIdentifier, ni => ni.Property(x => x.Value));
             modelBuilder.Entity<LoanApplication>()
                 .OwnsOne(a => a.Customer)
-                .OwnsOne(c =>c.Name, cn =>
+                .OwnsOne(c => c.Name, cn =>
                 {
                     cn.Property(x => x.First);
                     cn.Property(x => x.Last);
-                });
-            modelBuilder.Entity<LoanApplication>()
+                }).OwnsOne(e => e.Email, cn => 
+                    cn.Property(x=>x.MailValue)
+                );
+
+        modelBuilder.Entity<LoanApplication>()
                 .OwnsOne(a => a.Customer, c => c.Property(x => x.Birthdate));
             modelBuilder.Entity<LoanApplication>()
                 .OwnsOne(a => a.Customer)

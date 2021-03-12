@@ -19,7 +19,7 @@ namespace Loan.Domain
         {
         }
         public LoanApplication(LoanApplicationNumber number, Customer customer, 
-            Property property, Loan loan,OperatorId registeredBy)
+            Property property, Loan loan)
         {
             if (number==null)
                 throw new ArgumentException("Number cannot be null");
@@ -29,8 +29,6 @@ namespace Loan.Domain
                 throw new ArgumentException("Property cannot be null");
             if (loan==null)
                 throw new ArgumentException("Loan cannot be null");
-            if (registeredBy==null)
-                throw new ArgumentException("Registration cannot be null");
 
             Number = number;
             Customer = customer;
@@ -39,7 +37,7 @@ namespace Loan.Domain
             
             Id = new LoanApplicationId(Guid.NewGuid());
             Status = LoanApplicationStatus.New;
-            Registration = new Registration(SystemTime.Now(),registeredBy);
+            Registration = new Registration(SystemTime.Now(),null);
             Decision = null;
             Score = null;
         }

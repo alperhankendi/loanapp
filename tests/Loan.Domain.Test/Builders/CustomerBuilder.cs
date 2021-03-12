@@ -9,7 +9,7 @@ namespace Loan.Domain.Test.Builders
         private int age;
         private Money income = new Money(20_000M);
         private Address address = new Address("Turkey","34840","İstanbul","Cumhuriyet Cad.");
-        
+        private Email email = new Email("ahankendi@gmail.com");
         public CustomerBuilder WithIdentifier(string nationalId)
         {
             nationalIdentifier = new NationalIdentifier(nationalId);
@@ -27,7 +27,11 @@ namespace Loan.Domain.Test.Builders
             this.age = age;
             return this;
         }
-        
+        public CustomerBuilder WithEmail(string email)
+        {
+            this.email = new Email(email);
+            return this;
+        }
         public CustomerBuilder WithIncome(decimal income)
         {
             this.income = new Money(income);
@@ -48,7 +52,8 @@ namespace Loan.Domain.Test.Builders
                 name,
                 SystemTime.Now().AddYears(-1*age),
                 income,
-                address
+                address,
+                email
             );
         }
         

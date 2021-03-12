@@ -34,15 +34,16 @@ namespace Loan.Service.WebApi
                 });
 
                 #region Spesific consumer configuration
-                /*
+                
                 cfg.ReceiveEndpoint("Loan-Events", e =>
                 {
                     e.UseMessageRetry(x=>x.Interval(2,100));
                     e.ConfigureConsumer<LoanApplicationEventConsumer>(arg);
                     EndpointConvention.Map<Events.V1.LoanApplicationAccepted>(e.InputAddress);
                     EndpointConvention.Map<Events.V1.LoanApplicationRejected>(e.InputAddress);
+                    EndpointConvention.Map<Events.V1.LoanApplicationSubmitted>(e.InputAddress);
                 });
-                */
+                
                 #endregion
                 cfg.ConfigureEndpoints(arg);
             });

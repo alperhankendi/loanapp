@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Dapper;
-using Loan.Domain.Application;
 using Npgsql;
 
 namespace Loan.Domain.ReadModel
@@ -20,7 +18,6 @@ namespace Loan.Domain.ReadModel
         {
             using var cn = new NpgsqlConnection(connString);
             cn.Open();
-            
             return cn.Query<Contract.V1.LoanApplicationSummary>(
                     "SELECT \"Status\" as Status,count(*) as Count FROM \"LoanApplications\" group by \"Status\"").ToList();
         }

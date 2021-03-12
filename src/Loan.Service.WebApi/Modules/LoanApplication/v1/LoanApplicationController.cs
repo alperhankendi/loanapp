@@ -1,5 +1,6 @@
 ﻿using Loan.Domain.Application;
 using Loan.Domain.ReadModel;
+using Loan.Service.WebApi.Modules.LoanApplication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,8 +29,8 @@ namespace Loan.Service.WebApi.Controllers
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public string Create([FromBody] Contract.V1.SubmitApplication submitApplication)=>
-            loanApplicationSubmissionService.SubmitLoanApplication(submitApplication, fakeUser);
+        public string Create([FromBody] Modules.LoanApplication.Contract.V1.SubmitApplication submitApplication)=>
+            loanApplicationSubmissionService.SubmitLoanApplication(Mapper.ToModel(submitApplication));
 
         [HttpPut]
         [Route("evaluate/{applicationNumber}")]

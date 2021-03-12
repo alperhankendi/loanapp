@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Loan.Domain.Application;
+using Loan.Service.WebApi.Modules.LoanApplication;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -28,7 +29,7 @@ namespace Loan.Service.WebApi.Test
                 FirstName = "Alper",
                 LastName = "Hankendi",
                 BirthDate = new DateTime(1980, 7, 20),
-                NationalIdentifier = "11111111111",
+                NationalIdentifier = "11704301782",
                 CustomerAddress = new Contract.V1.Address
                 {
                     City = "Istanbul",
@@ -36,6 +37,7 @@ namespace Loan.Service.WebApi.Test
                     Street = "Cumhuriyet Cad.",
                     ZipCode = "34840"
                 },
+                Email = "ahankendi@gmail.com",
                 MonthlyIncome = 20_000M,
                 LoanNumberOfYears = 10,
                 LoanInterestRate = 1.1M,
