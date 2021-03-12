@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Loan.Domain.Application;
+﻿using Loan.Domain.Application;
 using Loan.Domain.ReadModel;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace Loan.Service.WebApi.Controllers
 {
@@ -31,6 +27,7 @@ namespace Loan.Service.WebApi.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public string Create([FromBody] Contract.V1.SubmitApplication submitApplication)=>
             loanApplicationSubmissionService.SubmitLoanApplication(submitApplication, fakeUser);
 

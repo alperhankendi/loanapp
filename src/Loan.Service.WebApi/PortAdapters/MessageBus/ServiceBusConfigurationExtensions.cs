@@ -23,7 +23,7 @@ namespace Loan.Service.WebApi
             return services;
         }
 
-        private static IBusControl BusFactory(IRegistrationContext<IServiceProvider> arg)
+        private static IBusControl BusFactory(IBusRegistrationContext arg)
         {
             var busControl= Bus.Factory.CreateUsingRabbitMq(cfg =>
             {

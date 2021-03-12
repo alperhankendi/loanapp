@@ -29,11 +29,4 @@ namespace Loan.Domain
 
         public bool CanAccept(Money loanAmount) => loanAmount < CompetenceLevel;
     }
-
-    public class OperatorId : IdentityBase<Guid>
-    {
-        public OperatorId(Guid id) : base(id)
-        {
-        }
-    }
 }
