@@ -50,7 +50,11 @@ r = Faiz Oranı, n = ödeme sayısı , P = anapara ; gördüğün gibi gayet bas
 Geliştirmeni bunu göze alarak yapmanda fayda var.
 
 
+### build status : [![.NET](https://github.com/alperhankendi/loanapp/actions/workflows/dotnet.yml/badge.svg?branch=master)](https://github.com/alperhankendi/loanapp/actions/workflows/dotnet.yml)
+
+
 ### links
+
 https://www.youtube.com/watch?v=Z62cbp61Bb8
 
 https://www.youtube.com/watch?v=LDRxo6wDIE0
