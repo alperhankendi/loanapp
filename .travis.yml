@@ -1,9 +1,0 @@
-language: csharp
-mono: none
-sudo: required
-dist: xenial
-dotnet: 3.1
-script:
-  - dotnet restore
-  - dotnet build
-  - dotnet test tests/Loan.Domain.Test/Loan.Domain.Test.csproj --filter TestCategory!=OPTIONAL-TEST
