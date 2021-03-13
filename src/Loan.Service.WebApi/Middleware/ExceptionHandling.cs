@@ -1,7 +1,6 @@
 using System;
 using System.Net;
 using System.Threading.Tasks;
-using Loan.Domain;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -33,19 +32,19 @@ namespace Loan.Service.WebApi.Middleware
         private static Task HandleExceptionAsync(HttpContext context, Exception ex, IWebHostEnvironment env)
         {
             var code = HttpStatusCode.InternalServerError;
-            if (ex is BusinessException)
-            {
-                switch (ex)
-                {
-                    case LoanApplicationNotFound:
-                    case OperatorNotFound:
-                        code = HttpStatusCode.NotFound;
-                        break;
-                    default:
-                        code = HttpStatusCode.BadRequest;
-                        break;
-                }
-            }
+//            if (ex is BusinessException)
+//            {
+//                switch (ex)
+//                {
+//                    case LoanApplicationNotFound:
+//                    case OperatorNotFound:
+//                        code = HttpStatusCode.NotFound;
+//                        break;
+//                    default:
+//                        code = HttpStatusCode.BadRequest;
+//                        break;
+//                }
+//            }
             var problem = new ProblemDetails
             {
                 Status = (int?)code,

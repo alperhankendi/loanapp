@@ -1,4 +1,3 @@
-using Loan.Domain.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -26,13 +25,6 @@ namespace Loan.Service.WebApi
                         Version = $"v{Configuration["Swagger:Version"]}" 
                     });
             });
-
-            services.AddEfDbAdapters(Configuration["Database:ConnectionString"]);
-            services.AddReadModelServices(Configuration["Database:ConnectionString"]);
-            services.AddExternalServicesClients();
-            
-            services.UseServiceBus();
-            services.AddApplicationServices();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -47,7 +39,6 @@ namespace Loan.Service.WebApi
                 c.SwaggerEndpoint(Configuration["Swagger:Endpoint:Url"],
                     Configuration["Swagger:Endpoint:Name"]);
             });
-            //app.UseHttpsRedirection();
             app.UseCustomErrorHandlingMiddleware();
             app.UseRouting();
             app.UseAuthorization();
