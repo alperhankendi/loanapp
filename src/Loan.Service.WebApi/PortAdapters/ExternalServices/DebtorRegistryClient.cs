@@ -8,6 +8,7 @@ namespace Loan.Service.WebApi.PortAdapters.ExternalServices
         public bool HasDebtor(Customer customer)
         {
             //still fake...
+            //external dto's ==> convert to our model needs
             return customer.NationalIdentifier != new NationalIdentifier(DebtorNationalIdentifier);
         }
     }
