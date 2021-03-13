@@ -60,7 +60,14 @@ class AgeInYears <<value object>>{
     int age
     AgeInYears Between(DateTime start, DateTime end)
 }
+class Money <<value object>>{
+    decimal Value
+}
 
+
+Property *--> Money : money
+Loan *--> Money : money
+Operator *--> Money : money
 LoanApplication *--> Customer : customer
 LoanApplication *--> Loan : loan
 LoanApplication *--> Property : property
