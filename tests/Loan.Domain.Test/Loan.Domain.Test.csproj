@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="FluentAssertions" Version="5.10.3" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.1" />
+        <PackageReference Include="xunit" Version="2.4.1" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="coverlet.collector" Version="3.0.3">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\Loan.Domain\Loan.Domain.csproj" />
+      <ProjectReference Include="..\..\src\Loan.Service.WebApi\Loan.Service.WebApi.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Mocks\**" />
+      <Compile Remove="Builders\**" />
+      <Compile Remove="ApplicationTests\**" />
+      <Compile Remove="CustomerTest.cs" />
+      <Compile Remove="DecisionTest.cs" />
+      <Compile Remove="LoanApplicationTest.cs" />
+      <Compile Remove="LoanTest.cs" />
+      <Compile Remove="PropertyTest.cs" />
+      <Compile Remove="ScoringRulesTest.cs" />
+      <Compile Remove="AgeInYearsTest.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Mocks\**" />
+      <EmbeddedResource Remove="Builders\**" />
+      <EmbeddedResource Remove="ApplicationTests\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Mocks\**" />
+      <None Remove="Builders\**" />
+      <None Remove="ApplicationTests\**" />
+    </ItemGroup>
+
+</Project>

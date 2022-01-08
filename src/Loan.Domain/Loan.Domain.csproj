@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Loan\Loan.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="DomainModel" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Dapper" Version="2.0.78" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+      <PackageReference Include="Npgsql" Version="5.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="DomainModel\Shared\Percent.cs" />
+      <Compile Remove="DomainModel\Shared\AgeInYears.cs" />
+      <Compile Remove="DomainModel\Shared\Address.cs" />
+    </ItemGroup>
+
+</Project>
