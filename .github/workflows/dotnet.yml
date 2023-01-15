@@ -32,27 +32,3 @@ jobs:
         name: JEST Tests            
         path: ./tests/Loan.Domain.Test/TestResults/*.trx
         reporter: dotnet-trx        
-
-    - name: Glob match
-      uses: tj-actions/glob@v16
-      id: glob
-      with:
-        files: |
-          ./tests/Loan.Domain.Test/TestResults/**/*.coverage
-
-    - name: Show all matching files
-      run: |
-        echo "${{ steps.glob.outputs.paths }}"
-        
-    - name: Code Coverage Report
-      uses: irongut/CodeCoverageSummary@v1.3.0
-      with:
-        filename: ${{ steps.glob.outputs.paths }}
-        badge: true
-        fail_below_min: true
-        format: markdown
-        hide_branch_rate: false
-        hide_complexity: true
-        indicators: true
-        output: both
-        thresholds: '60 80'
