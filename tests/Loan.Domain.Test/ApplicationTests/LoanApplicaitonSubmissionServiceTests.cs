@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Loan.Domain.Application;
 using Loan.Domain.Test.Builders;
-using Loan.Service.WebApi.Modules.LoanApplication;
+using Loan.Service.Api.Modules.LoanApplication;
 using Xunit;
 using Xunit.Abstractions;
 

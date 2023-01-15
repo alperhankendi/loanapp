@@ -1,5 +1,4 @@
 using System;
-using GreenPipes;
 using Loan.Core;
 using Loan.Domain;
 using Loan.Service.WebApi.PortAdapters.EventConsumers;

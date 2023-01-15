@@ -1,0 +1,36 @@
+version: "3"
+services:
+  dbef:
+    container_name: dbef
+    image: postgres:12.3
+    volumes:
+      - pg-data-efdata2:/var/lib/postgresql/data
+      - ./SetupScripts/dbschema:/docker-entrypoint-initdb.d
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_DB: ddd_loan
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    hostname: "rabbit"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    labels:
+      NAME: "rabbitmq"
+    volumes:
+      - ./rabbitmq-isolated.conf:/etc/rabbitmq/rabbitmq.config
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      ADMINER_DEFAULT_SERVER: postgresql
+      ADMINER_DESIGN: nette
+
+volumes:
+  pg-data-efdata2:

@@ -9,8 +9,8 @@ namespace Loan.Domain
         public LoanApplicationNumber Number { get; }
         public LoanApplicationStatus Status { get; private set; }
         public ScoreResult Score { get; private set; }
-        public Customer Customer { get; }
-        public Property Property { get; }
+        public Customer Customer { get; private set; }
+        public Property Property { get; private set; }
         public Loan Loan { get; }
         public Registration Registration { get; }
         public Decision Decision { get; private set; }
