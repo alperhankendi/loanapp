@@ -1,0 +1,32 @@
+﻿@hostname = localhost
+@port = 7048
+@host = {{hostname}}:{{port}}
+@contentType = "application/json"
+
+POST https://{{host}}/LoanApplication
+Content-Type:{{contentType}}
+{
+  "nationalIdentifier": "11111111112",
+  "firstName": "Alper",
+  "lastName": "Hankendi",
+  "birthDate": "1980-01-15T01:31:49.215Z",
+  "monthlyIncome": 5000,
+  "customerAddress": {
+    "country": "Turkiye",
+    "zipCode": "34840",
+    "city": "İstanbul",
+    "street": "Cumhuriyet Cd."
+  },
+  "email": "ahankendi@gmail.com",
+  "propertyValue": 500000,
+  "properyAddress": {
+    "country": "Turkiye",
+    "zipCode": "34840",
+    "city": "İstanbul",
+    "street": "Cumhuriyet Cd."
+  },
+  "loanAmount": 50000,
+  "loanNumberOfYears": 8,
+  "loanInterestRate": 1.1
+}
+###
