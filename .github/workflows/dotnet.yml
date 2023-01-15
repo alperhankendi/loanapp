@@ -22,6 +22,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --configuration Development --no-restore
+      run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --collect "Code Coverage" tests/Loan.Domain.Test/Loan.Domain.Test.csproj --no-build --no-restore --verbosity normal
