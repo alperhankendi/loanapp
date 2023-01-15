@@ -24,13 +24,13 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
-      run: dotnet test --logger "trx;LogFileName=test-results.trx" --collect "Code Coverage" tests/Loan.Domain.Test/Loan.Domain.Test.csproj --no-restore --verbosity normal --results-directory ./coverage
+      run: dotnet test --logger "trx;LogFileName=test-results.trx" --collect "Code Coverage" tests/Loan.Domain.Test/Loan.Domain.Test.csproj --no-restore --verbosity normal /p:CollectCoverage=true
     - name: Test Report
       uses: dorny/test-reporter@v1
       if: success()
       with:
         name: JEST Tests            
-        path: ./coverage/*.trx
+        path: ./tests/Loan.Domain.Test/TestResults/*.trx
         reporter: dotnet-trx        
 
     - name: Glob match
@@ -38,7 +38,7 @@ jobs:
       id: glob
       with:
         files: |
-          **/*.coverage
+          ./tests/Loan.Domain.Test/TestResults/**/*.coverage
 
     - name: Show all matching files
       run: |
