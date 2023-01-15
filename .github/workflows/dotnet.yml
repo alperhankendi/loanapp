@@ -8,18 +8,20 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        dotnet-version: ['3.0', '3.1.x', '5.0.x','7.0.x' ]
+    
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
+    - uses: actions/checkout@v3
+    - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 7.0.x
+        dotnet-version: ${{ matrix.dotnet-version }}
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --configuration Development --no-restore
     - name: Test
-      run: dotnet test --collect "Code Coverage" tests/Loan.Domain.Test/Loan.Domain.Test.csproj --no-build --verbosity normal
+      run: dotnet test --collect "Code Coverage" tests/Loan.Domain.Test/Loan.Domain.Test.csproj --no-build --no-restore --verbosity normal
