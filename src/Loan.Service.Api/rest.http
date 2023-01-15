@@ -7,8 +7,8 @@ POST https://{{host}}/LoanApplication
 Content-Type:{{contentType}}
 {
   "nationalIdentifier": "11111111112",
-  "firstName": "Alper",
-  "lastName": "Hankendi",
+  "firstName": "Test",
+  "lastName": "test",
   "birthDate": "1980-01-15T01:31:49.215Z",
   "monthlyIncome": 5000,
   "customerAddress": {
@@ -17,7 +17,7 @@ Content-Type:{{contentType}}
     "city": "İstanbul",
     "street": "Cumhuriyet Cd."
   },
-  "email": "ahankendi@gmail.com",
+  "email": "test@test.com",
   "propertyValue": 500000,
   "properyAddress": {
     "country": "Turkiye",
