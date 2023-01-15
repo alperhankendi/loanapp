@@ -1,3 +1,4 @@
+## kurulum
 Entity framework cli aracýnýn kurulu olduðundan emin olun.
 `
 dotnet ef
@@ -20,3 +21,6 @@ Veritananý güncellemek için
 `
 dotnet ef database update
 `
+
+##problem
+Case görmek için [buraya] týklayýn.(use-case.md)
