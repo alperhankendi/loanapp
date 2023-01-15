@@ -24,11 +24,24 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
-      run: dotnet test --logger "trx;LogFileName=test-results.trx" --collect "Code Coverage" tests/Loan.Domain.Test/Loan.Domain.Test.csproj --no-restore --verbosity normal
+      run: dotnet test --logger "trx;LogFileName=test-results.trx" --collect "Code Coverage" tests/Loan.Domain.Test/Loan.Domain.Test.csproj --no-restore --verbosity normal --results-directory ./coverage
     - name: Test Report
       uses: dorny/test-reporter@v1
       if: success()
       with:
         name: JEST Tests            
-        path: tests/Loan.Domain.Test/TestResults/*.trx
+        path: ./coverage/*.trx
         reporter: dotnet-trx        
+
+    - name: Code Coverage Report
+      uses: irongut/CodeCoverageSummary@v1.3.0
+      with:
+        filename: coverage/**/coverage.cobertura.xml
+        badge: true
+        fail_below_min: true
+        format: markdown
+        hide_branch_rate: false
+        hide_complexity: true
+        indicators: true
+        output: both
+        thresholds: '60 80'
