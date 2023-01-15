@@ -38,7 +38,7 @@ jobs:
       id: glob
       with:
         files: |
-          **/coverage.cobertura.xml
+          **/*.coverage
 
     - name: Show all matching files
       run: |
