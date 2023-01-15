@@ -1,5 +1,14 @@
-using Loan.Domain.Repository.Persistence;
-using Loan.Service.Api.Modules.LoanApplication;
+using Serilog;
+using Serilog.Events;
+
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Verbose()
+    .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+    .MinimumLevel.Override("Microsoft.AspNetCore.Mvc.Infrastructure", LogEventLevel.Warning)
+    .Enrich.FromLogContext()
+    .WriteTo.Console()
+    .CreateLogger();
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,11 +33,26 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseSerilogRequestLogging();
 app.UseHealthChecks("/health");
 app.UseMiddleware<CustomErrorHandlingMiddleware>();
 app.UseHttpsRedirection();
 app.MapGet("/healthy", () =>{return "OK";}).WithName("GetWeatherForecast").WithOpenApi();
 app.MapControllers().WithTags("Loan Application");
 
-app.Run();
+
+try
+{
+    app.Run();
+    return 0;
+}
+catch (Exception e)
+{
+    Log.Fatal(e, "Host terminated unexpectedly");
+    return 1;
+}
+finally
+{
+    Log.CloseAndFlush();
+}
 public partial class Program{ }
