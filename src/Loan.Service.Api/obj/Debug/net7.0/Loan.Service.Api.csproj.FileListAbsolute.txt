@@ -85,3 +85,12 @@ C:\workspace\loanapp\src\Loan.Service.Api\obj\Debug\net7.0\refint\Loan.Service.A
 C:\workspace\loanapp\src\Loan.Service.Api\obj\Debug\net7.0\Loan.Service.Api.pdb
 C:\workspace\loanapp\src\Loan.Service.Api\obj\Debug\net7.0\Loan.Service.Api.genruntimeconfig.cache
 C:\workspace\loanapp\src\Loan.Service.Api\obj\Debug\net7.0\ref\Loan.Service.Api.dll
+C:\workspace\loanapp\src\Loan.Service.Api\bin\Debug\net7.0\Serilog.dll
+C:\workspace\loanapp\src\Loan.Service.Api\bin\Debug\net7.0\Serilog.AspNetCore.dll
+C:\workspace\loanapp\src\Loan.Service.Api\bin\Debug\net7.0\Serilog.Extensions.Hosting.dll
+C:\workspace\loanapp\src\Loan.Service.Api\bin\Debug\net7.0\Serilog.Extensions.Logging.dll
+C:\workspace\loanapp\src\Loan.Service.Api\bin\Debug\net7.0\Serilog.Formatting.Compact.dll
+C:\workspace\loanapp\src\Loan.Service.Api\bin\Debug\net7.0\Serilog.Settings.Configuration.dll
+C:\workspace\loanapp\src\Loan.Service.Api\bin\Debug\net7.0\Serilog.Sinks.Console.dll
+C:\workspace\loanapp\src\Loan.Service.Api\bin\Debug\net7.0\Serilog.Sinks.Debug.dll
+C:\workspace\loanapp\src\Loan.Service.Api\bin\Debug\net7.0\Serilog.Sinks.File.dll
