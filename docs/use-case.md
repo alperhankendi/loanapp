@@ -17,13 +17,18 @@ diğerleri müşteri tarafından gönderilen belgelerin manuel olarak kontrol ed
 * Skor olumlu(yeşil) ise, operatör ekli belgeleri doğrular ve verilen veri ve belgeleri arasındaki tutarsızlıklar nedeniyle başvuruyu kabul eder veya reddeder. (ScoreResult)
 * Her operatörün onaylayabileceği kredi tutar sınırlaması olmalı (CompetenceLevel), yetkisini  aşan kredi tutarlarını onaylayamamalı. (Decision)
 * Onay/Red olmuş kredi başvuruları kredi@banka.com adresine otomatik bildirim yapılması gerekiyor.
-* Kredilerin durumlarını özet olarak görmemiz gerekiyor.
+* Kredi başvuru durumlarını özet olarak görmemiz gerekiyor.
 #### Uygulama puanı hesaplamamız için puanlama kurallarını inceleyelim. İşte kurallar:
 
 * Mülk değeri talep edilen kredi tutarını aşmamalıdır.
 * Son kredi taksit günü, müşteri yaşı 65 geçmemelidir.
 * Aylık kredi taksiti, müşterinin aylık gelirinin %15'ini geçmemelidir.
 * Müşterinin Türkiye de herhangi kayıtlı bir borçu olmamalıdır. (Gelir İdare başkanlığı servisi kullanılacak)
+
+!!!!!!!!!
+* Bir müşternin aynı anda 3 tane aktif kredi başvuru olamaz...
+* bir müşterinin son 1 yılda reddedilmiş 10 tane başvuru olamaz...
+!!!!!!!!!
 
 
 ## Domain Expert ile görüşme
