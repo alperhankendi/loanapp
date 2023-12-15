@@ -14,13 +14,17 @@ dotnet tool update --global dotnet-ef
 
 Model değişiklikleri için;
 `
-dotnet ef migrations remove
-dotnet ef migrations add -s ..\Loan.Service.Api InitialMigration --verbose
-`
-Veritananı değişikliklerini güncellemek için;
-`
-dotnet ef database update
+cd ProjectFolder/loanapp/
+dotnet ef migrations remove --project src\Loan.Domain.Repository\Loan.Domain.Repository.csproj --startup-project src\Loan.Service.Api\Loan.Service.Api.csproj --context Loan.Domain.Repository.Persistence.LoanDbContext --configuration Debug --force
+dotnet ef migrations add --project src\Loan.Domain.Repository\Loan.Domain.Repository.csproj --startup-project src\Loan.Service.Api\Loan.Service.Api.csproj --context Loan.Domain.Repository.Persistence.LoanDbContext --configuration Debug Initial --output-dir Migrations
 `
 
-##problem
-Case g�rmek i�in [buraya] t�klay�n.(use-case.md)
+
+Veritananı değişikliklerini güncellemek için;
+`
+dotnet.exe ef database update --project src\Loan.Domain.Repository\Loan.Domain.Repository.csproj --startup-project src\Loan.Service.Api\Loan.Service.Api.csproj --context Loan.Domain.Repository.Persistence.LoanDbContext --configuration Debug
+`
+Veritabanını silmek için;
+`
+dotnet ef database drop --project src\Loan.Domain.Repository\Loan.Domain.Repository.csproj --force
+`
