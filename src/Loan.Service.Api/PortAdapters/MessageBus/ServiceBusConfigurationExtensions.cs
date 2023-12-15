@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Loan.Core;
 using Loan.Domain;
 using Loan.Service.Api.PortAdapters.EventConsumers;
@@ -9,7 +10,13 @@ public static class ServiceBusConfigurationExtensions
 {
     public static IServiceCollection UseServiceBus(this IServiceCollection services)
     {
-
+        JsonSerializerOptions options = new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            PropertyNameCaseInsensitive = true,
+            IncludeFields = true
+        };
+        
         services.AddMassTransit(cfg =>
         {
             cfg.AddConsumer<LoanApplicationEventConsumer>();
@@ -24,6 +31,14 @@ public static class ServiceBusConfigurationExtensions
     {
         var busControl= Bus.Factory.CreateUsingRabbitMq(cfg =>
         {
+            cfg.ConfigureJsonSerializerOptions(options => 
+            {
+                options.PropertyNameCaseInsensitive = true;
+                options.IncludeFields = true;
+                options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;        
+                return options;
+            });
+            
             cfg.Host("localhost", "/", h =>
             {
                 h.Username("guest");
