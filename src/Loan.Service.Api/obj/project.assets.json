@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {
+    "net8.0": {
       "Dapper/2.0.123": {
         "type": "package",
         "compile": {
@@ -1165,7 +1165,7 @@
       },
       "Loan.Core/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
+        "framework": ".NETCoreApp,Version=v8.0",
         "compile": {
           "bin/placeholder/Loan.Core.dll": {}
         },
@@ -1175,7 +1175,7 @@
       },
       "Loan.Domain/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
+        "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Dapper": "2.0.123",
           "Loan.Core": "1.0.0",
@@ -1192,7 +1192,7 @@
       },
       "Loan.Domain.Repository/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
+        "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Loan.Core": "1.0.0",
           "Loan.Domain": "1.0.0",
@@ -2979,7 +2979,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net7.0": [
+    "net8.0": [
       "Loan.Core >= 1.0.0",
       "Loan.Domain >= 1.0.0",
       "Loan.Domain.Repository >= 1.0.0",
@@ -2994,40 +2994,38 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ahank\\.nuget\\packages\\": {}
+    "C:\\Users\\Alper\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\workspace\\loanapp\\src\\Loan.Service.Api\\Loan.Service.Api.csproj",
+      "projectUniqueName": "D:\\workspace\\loanapp\\src\\Loan.Service.Api\\Loan.Service.Api.csproj",
       "projectName": "Loan.Service.Api",
-      "projectPath": "C:\\workspace\\loanapp\\src\\Loan.Service.Api\\Loan.Service.Api.csproj",
-      "packagesPath": "C:\\Users\\ahank\\.nuget\\packages\\",
-      "outputPath": "C:\\workspace\\loanapp\\src\\Loan.Service.Api\\obj\\",
+      "projectPath": "D:\\workspace\\loanapp\\src\\Loan.Service.Api\\Loan.Service.Api.csproj",
+      "packagesPath": "C:\\Users\\Alper\\.nuget\\packages\\",
+      "outputPath": "D:\\workspace\\loanapp\\src\\Loan.Service.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ahank\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Alper\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net7.0"
+        "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\workspace\\loanapp\\src\\Loan.Domain.Repository\\Loan.Domain.Repository.csproj": {
-              "projectPath": "C:\\workspace\\loanapp\\src\\Loan.Domain.Repository\\Loan.Domain.Repository.csproj"
+            "D:\\workspace\\loanapp\\src\\Loan.Domain.Repository\\Loan.Domain.Repository.csproj": {
+              "projectPath": "D:\\workspace\\loanapp\\src\\Loan.Domain.Repository\\Loan.Domain.Repository.csproj"
             },
-            "C:\\workspace\\loanapp\\src\\Loan.Domain\\Loan.Domain.csproj": {
-              "projectPath": "C:\\workspace\\loanapp\\src\\Loan.Domain\\Loan.Domain.csproj"
+            "D:\\workspace\\loanapp\\src\\Loan.Domain\\Loan.Domain.csproj": {
+              "projectPath": "D:\\workspace\\loanapp\\src\\Loan.Domain\\Loan.Domain.csproj"
             },
-            "C:\\workspace\\loanapp\\src\\Loan\\Loan.csproj": {
-              "projectPath": "C:\\workspace\\loanapp\\src\\Loan\\Loan.csproj"
+            "D:\\workspace\\loanapp\\src\\Loan\\Loan.csproj": {
+              "projectPath": "D:\\workspace\\loanapp\\src\\Loan\\Loan.csproj"
             }
           }
         }
@@ -3039,8 +3037,8 @@
       }
     },
     "frameworks": {
-      "net7.0": {
-        "targetAlias": "net7.0",
+      "net8.0": {
+        "targetAlias": "net8.0",
         "dependencies": {
           "MassTransit.RabbitMQ": {
             "target": "Package",
@@ -3096,7 +3094,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

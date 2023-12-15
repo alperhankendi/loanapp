@@ -1,38 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "C:\\workspace\\loanapp\\src\\Loan.Service.Api\\Loan.Service.Api.csproj": {}
+    "D:\\workspace\\loanapp\\src\\Loan.Service.Api\\Loan.Service.Api.csproj": {}
   },
   "projects": {
-    "C:\\workspace\\loanapp\\src\\Loan.Domain.Repository\\Loan.Domain.Repository.csproj": {
+    "D:\\workspace\\loanapp\\src\\Loan.Domain.Repository\\Loan.Domain.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\workspace\\loanapp\\src\\Loan.Domain.Repository\\Loan.Domain.Repository.csproj",
+        "projectUniqueName": "D:\\workspace\\loanapp\\src\\Loan.Domain.Repository\\Loan.Domain.Repository.csproj",
         "projectName": "Loan.Domain.Repository",
-        "projectPath": "C:\\workspace\\loanapp\\src\\Loan.Domain.Repository\\Loan.Domain.Repository.csproj",
-        "packagesPath": "C:\\Users\\ahank\\.nuget\\packages\\",
-        "outputPath": "C:\\workspace\\loanapp\\src\\Loan.Domain.Repository\\obj\\",
+        "projectPath": "D:\\workspace\\loanapp\\src\\Loan.Domain.Repository\\Loan.Domain.Repository.csproj",
+        "packagesPath": "C:\\Users\\Alper\\.nuget\\packages\\",
+        "outputPath": "D:\\workspace\\loanapp\\src\\Loan.Domain.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ahank\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Alper\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\workspace\\loanapp\\src\\Loan.Domain\\Loan.Domain.csproj": {
-                "projectPath": "C:\\workspace\\loanapp\\src\\Loan.Domain\\Loan.Domain.csproj"
+              "D:\\workspace\\loanapp\\src\\Loan.Domain\\Loan.Domain.csproj": {
+                "projectPath": "D:\\workspace\\loanapp\\src\\Loan.Domain\\Loan.Domain.csproj"
               },
-              "C:\\workspace\\loanapp\\src\\Loan\\Loan.csproj": {
-                "projectPath": "C:\\workspace\\loanapp\\src\\Loan\\Loan.csproj"
+              "D:\\workspace\\loanapp\\src\\Loan\\Loan.csproj": {
+                "projectPath": "D:\\workspace\\loanapp\\src\\Loan\\Loan.csproj"
               }
             }
           }
@@ -44,8 +42,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -90,36 +88,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\workspace\\loanapp\\src\\Loan.Domain\\Loan.Domain.csproj": {
+    "D:\\workspace\\loanapp\\src\\Loan.Domain\\Loan.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\workspace\\loanapp\\src\\Loan.Domain\\Loan.Domain.csproj",
+        "projectUniqueName": "D:\\workspace\\loanapp\\src\\Loan.Domain\\Loan.Domain.csproj",
         "projectName": "Loan.Domain",
-        "projectPath": "C:\\workspace\\loanapp\\src\\Loan.Domain\\Loan.Domain.csproj",
-        "packagesPath": "C:\\Users\\ahank\\.nuget\\packages\\",
-        "outputPath": "C:\\workspace\\loanapp\\src\\Loan.Domain\\obj\\",
+        "projectPath": "D:\\workspace\\loanapp\\src\\Loan.Domain\\Loan.Domain.csproj",
+        "packagesPath": "C:\\Users\\Alper\\.nuget\\packages\\",
+        "outputPath": "D:\\workspace\\loanapp\\src\\Loan.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ahank\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Alper\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\workspace\\loanapp\\src\\Loan\\Loan.csproj": {
-                "projectPath": "C:\\workspace\\loanapp\\src\\Loan\\Loan.csproj"
+              "D:\\workspace\\loanapp\\src\\Loan\\Loan.csproj": {
+                "projectPath": "D:\\workspace\\loanapp\\src\\Loan\\Loan.csproj"
               }
             }
           }
@@ -131,8 +127,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Dapper": {
               "target": "Package",
@@ -167,42 +163,40 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\workspace\\loanapp\\src\\Loan.Service.Api\\Loan.Service.Api.csproj": {
+    "D:\\workspace\\loanapp\\src\\Loan.Service.Api\\Loan.Service.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\workspace\\loanapp\\src\\Loan.Service.Api\\Loan.Service.Api.csproj",
+        "projectUniqueName": "D:\\workspace\\loanapp\\src\\Loan.Service.Api\\Loan.Service.Api.csproj",
         "projectName": "Loan.Service.Api",
-        "projectPath": "C:\\workspace\\loanapp\\src\\Loan.Service.Api\\Loan.Service.Api.csproj",
-        "packagesPath": "C:\\Users\\ahank\\.nuget\\packages\\",
-        "outputPath": "C:\\workspace\\loanapp\\src\\Loan.Service.Api\\obj\\",
+        "projectPath": "D:\\workspace\\loanapp\\src\\Loan.Service.Api\\Loan.Service.Api.csproj",
+        "packagesPath": "C:\\Users\\Alper\\.nuget\\packages\\",
+        "outputPath": "D:\\workspace\\loanapp\\src\\Loan.Service.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ahank\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Alper\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\workspace\\loanapp\\src\\Loan.Domain.Repository\\Loan.Domain.Repository.csproj": {
-                "projectPath": "C:\\workspace\\loanapp\\src\\Loan.Domain.Repository\\Loan.Domain.Repository.csproj"
+              "D:\\workspace\\loanapp\\src\\Loan.Domain.Repository\\Loan.Domain.Repository.csproj": {
+                "projectPath": "D:\\workspace\\loanapp\\src\\Loan.Domain.Repository\\Loan.Domain.Repository.csproj"
               },
-              "C:\\workspace\\loanapp\\src\\Loan.Domain\\Loan.Domain.csproj": {
-                "projectPath": "C:\\workspace\\loanapp\\src\\Loan.Domain\\Loan.Domain.csproj"
+              "D:\\workspace\\loanapp\\src\\Loan.Domain\\Loan.Domain.csproj": {
+                "projectPath": "D:\\workspace\\loanapp\\src\\Loan.Domain\\Loan.Domain.csproj"
               },
-              "C:\\workspace\\loanapp\\src\\Loan\\Loan.csproj": {
-                "projectPath": "C:\\workspace\\loanapp\\src\\Loan\\Loan.csproj"
+              "D:\\workspace\\loanapp\\src\\Loan\\Loan.csproj": {
+                "projectPath": "D:\\workspace\\loanapp\\src\\Loan\\Loan.csproj"
               }
             }
           }
@@ -214,8 +208,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "MassTransit.RabbitMQ": {
               "target": "Package",
@@ -271,33 +265,31 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\workspace\\loanapp\\src\\Loan\\Loan.csproj": {
+    "D:\\workspace\\loanapp\\src\\Loan\\Loan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\workspace\\loanapp\\src\\Loan\\Loan.csproj",
+        "projectUniqueName": "D:\\workspace\\loanapp\\src\\Loan\\Loan.csproj",
         "projectName": "Loan.Core",
-        "projectPath": "C:\\workspace\\loanapp\\src\\Loan\\Loan.csproj",
-        "packagesPath": "C:\\Users\\ahank\\.nuget\\packages\\",
-        "outputPath": "C:\\workspace\\loanapp\\src\\Loan\\obj\\",
+        "projectPath": "D:\\workspace\\loanapp\\src\\Loan\\Loan.csproj",
+        "packagesPath": "C:\\Users\\Alper\\.nuget\\packages\\",
+        "outputPath": "D:\\workspace\\loanapp\\src\\Loan\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ahank\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Alper\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -308,8 +300,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "imports": [
             "net461",
             "net462",
@@ -326,7 +318,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
