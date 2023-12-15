@@ -1,26 +1,26 @@
 ## kurulum
-Entity framework cli aracının kurulu olduğundan emin olun.
+Entity framework cli aracï¿½nï¿½n kurulu olduï¿½undan emin olun.
 `
 dotnet ef
 `
-kurulu değil ise
+kurulu deÄŸil ise
 `
 dotnet tool install --global dotnet-ef
 `
-kurulu ise güncellemek için;
+kurulu ise gÃ¼ncellemek iÃ§in;
 `
 dotnet tool update --global dotnet-ef
 `
 
-Model değişiklikleri için
+Model deÄŸiÅŸiklikleri iÃ§in;
 `
 dotnet ef migrations remove
 dotnet ef migrations add -s ..\Loan.Service.Api InitialMigration --verbose
 `
-Veritananı güncellemek için
+VeritananÄ± deÄŸiÅŸikliklerini gÃ¼ncellemek iÃ§in;
 `
 dotnet ef database update
 `
 
 ##problem
-Case görmek için [buraya] tıklayın.(use-case.md)
+Case gï¿½rmek iï¿½in [buraya] tï¿½klayï¿½n.(use-case.md)
